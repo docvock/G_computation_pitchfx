@@ -1,0 +1,68 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+spatstat 1.37-0       (nickname: 'Model Prisoner') 
+For an introduction to spatstat, type 'beginner'
+Loading required package: nlme
+
+Attaching package: 'nlme'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+This is mgcv 1.8-0. For overview type 'help("mgcv-package")'.
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  15 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  3 points were rejected as lying outside the specified window
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  11 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  1 point was rejected as lying outside the specified window
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  120 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  151 points were rejected as lying outside the specified window
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  37 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  38 points were rejected as lying outside the specified window
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+> proc.time()
+   user  system elapsed 
+  41.82    0.49   42.38 

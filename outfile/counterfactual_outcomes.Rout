@@ -1,0 +1,114 @@
+Loading required package: nlme
+This is mgcv 1.8-0. For overview type 'help("mgcv-package")'.
+
+Attaching package: 'dplyr'
+
+The following object is masked from 'package:nlme':
+
+    collapse
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+$outcome
+  hit_safe        out       walk 
+0.24552633 0.71509756 0.03937611 
+
+$batting_average
+[1] 0.2555905
+
+$on_base_percentage
+[1] 0.2849024
+
+$slugging_percentage
+[1] 0.3533331
+
+% latex table generated in R 3.1.1 by xtable 1.7-3 package
+% Sun Aug 24 19:00:38 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{llllrrr}
+  \hline
+Strikezone & Pitch Selection & Plate Discipline & Hitting Ability & Estimated Batting Average & Difference from All Castro & Difference from All McCutchen \\ 
+  \hline
+Castro & Castro & Castro & Castro & 0.256 & 0.000 & -0.045 \\ 
+  McCutchen & Castro & Castro & Castro & 0.258 & 0.003 & -0.042 \\ 
+  Castro & McCutchen & Castro & Castro & 0.257 & 0.001 & -0.044 \\ 
+  McCutchen & McCutchen & Castro & Castro & 0.259 & 0.003 & -0.042 \\ 
+  Castro & Castro & McCutchen & Castro & 0.268 & 0.012 & -0.033 \\ 
+  McCutchen & Castro & McCutchen & Castro & 0.271 & 0.015 & -0.030 \\ 
+  Castro & McCutchen & McCutchen & Castro & 0.273 & 0.018 & -0.027 \\ 
+  McCutchen & McCutchen & McCutchen & Castro & 0.274 & 0.019 & -0.026 \\ 
+  Castro & Castro & Castro & McCutchen & 0.276 & 0.021 & -0.024 \\ 
+  McCutchen & Castro & Castro & McCutchen & 0.280 & 0.024 & -0.021 \\ 
+  Castro & McCutchen & Castro & McCutchen & 0.273 & 0.017 & -0.028 \\ 
+  McCutchen & McCutchen & Castro & McCutchen & 0.274 & 0.019 & -0.026 \\ 
+  Castro & Castro & McCutchen & McCutchen & 0.299 & 0.044 & -0.001 \\ 
+  McCutchen & Castro & McCutchen & McCutchen & 0.303 & 0.048 & 0.003 \\ 
+  Castro & McCutchen & McCutchen & McCutchen & 0.300 & 0.044 & -0.001 \\ 
+  McCutchen & McCutchen & McCutchen & McCutchen & 0.301 & 0.045 & 0.000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+% latex table generated in R 3.1.1 by xtable 1.7-3 package
+% Sun Aug 24 19:00:38 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{llllrrr}
+  \hline
+Strikezone & Pitch Selection & Plate Discipline & Hitting Ability & Estimated On Base Percentage & Difference from All Castro & Difference from All McCutchen \\ 
+  \hline
+Castro & Castro & Castro & Castro & 0.285 & 0.000 & -0.090 \\ 
+  McCutchen & Castro & Castro & Castro & 0.293 & 0.008 & -0.082 \\ 
+  Castro & McCutchen & Castro & Castro & 0.308 & 0.023 & -0.067 \\ 
+  McCutchen & McCutchen & Castro & Castro & 0.311 & 0.026 & -0.064 \\ 
+  Castro & Castro & McCutchen & Castro & 0.312 & 0.028 & -0.062 \\ 
+  McCutchen & Castro & McCutchen & Castro & 0.319 & 0.034 & -0.056 \\ 
+  Castro & McCutchen & McCutchen & Castro & 0.349 & 0.064 & -0.026 \\ 
+  McCutchen & McCutchen & McCutchen & Castro & 0.350 & 0.065 & -0.025 \\ 
+  Castro & Castro & Castro & McCutchen & 0.305 & 0.020 & -0.070 \\ 
+  McCutchen & Castro & Castro & McCutchen & 0.313 & 0.028 & -0.062 \\ 
+  Castro & McCutchen & Castro & McCutchen & 0.323 & 0.038 & -0.052 \\ 
+  McCutchen & McCutchen & Castro & McCutchen & 0.326 & 0.041 & -0.049 \\ 
+  Castro & Castro & McCutchen & McCutchen & 0.341 & 0.056 & -0.034 \\ 
+  McCutchen & Castro & McCutchen & McCutchen & 0.348 & 0.063 & -0.027 \\ 
+  Castro & McCutchen & McCutchen & McCutchen & 0.374 & 0.089 & -0.001 \\ 
+  McCutchen & McCutchen & McCutchen & McCutchen & 0.375 & 0.090 & 0.000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+% latex table generated in R 3.1.1 by xtable 1.7-3 package
+% Sun Aug 24 19:00:38 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{llllrrr}
+  \hline
+Strikezone & Pitch Selection & Plate Discipline & Hitting Ability & Estimated Slugging Percentage & Difference from All Castro & Difference from All McCutchen \\ 
+  \hline
+Castro & Castro & Castro & Castro & 0.353 & 0.000 & -0.122 \\ 
+  McCutchen & Castro & Castro & Castro & 0.358 & 0.004 & -0.118 \\ 
+  Castro & McCutchen & Castro & Castro & 0.351 & -0.002 & -0.124 \\ 
+  McCutchen & McCutchen & Castro & Castro & 0.354 & 0.001 & -0.121 \\ 
+  Castro & Castro & McCutchen & Castro & 0.383 & 0.030 & -0.092 \\ 
+  McCutchen & Castro & McCutchen & Castro & 0.387 & 0.034 & -0.088 \\ 
+  Castro & McCutchen & McCutchen & Castro & 0.385 & 0.032 & -0.090 \\ 
+  McCutchen & McCutchen & McCutchen & Castro & 0.387 & 0.033 & -0.089 \\ 
+  Castro & Castro & Castro & McCutchen & 0.443 & 0.090 & -0.032 \\ 
+  McCutchen & Castro & Castro & McCutchen & 0.448 & 0.095 & -0.027 \\ 
+  Castro & McCutchen & Castro & McCutchen & 0.429 & 0.076 & -0.046 \\ 
+  McCutchen & McCutchen & Castro & McCutchen & 0.432 & 0.078 & -0.044 \\ 
+  Castro & Castro & McCutchen & McCutchen & 0.483 & 0.130 & 0.008 \\ 
+  McCutchen & Castro & McCutchen & McCutchen & 0.489 & 0.136 & 0.014 \\ 
+  Castro & McCutchen & McCutchen & McCutchen & 0.474 & 0.121 & -0.001 \\ 
+  McCutchen & McCutchen & McCutchen & McCutchen & 0.475 & 0.122 & 0.000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+> proc.time()
+   user  system elapsed 
+  47.76    0.34   48.11 
