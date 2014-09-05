@@ -12,7 +12,25 @@
 model_outcomes <- function(hitting_ability, plate_discipline, pitch_selection, strikezone,
                            mccutchen_models = mccutchen_models, castro_models = castro_models, 
                            pitchfx = pitchfx) {
-  
+	
+  # Computes the estimated batting average, on-base percentage, and slugging percentage
+	# using the G-computation algorithm using the generalized additive model results of either
+	# Andrew McCutchen's or Starlin Castro's hitting ability, plate discipline, pitch selection,
+	# and strike zone called.
+  #
+  # Args:
+  # plate_discipline: The estimated probability of swi 
+	# hitting_ability: Given a pitch is swung at, the probability the pitch results in a whiff,
+	#                    foul, out, or hit (and the number of bases) is based on models from either
+	#                    Castro or McCutchen. 
+	
+  #   y: The other vector. x and y must have the same length, greater than one,
+  #      with no missing values.
+  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
+  #
+  # Returns:
+  #   The sample covariance between x and y.
+	
   ## Define outcomes of interest
   outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "strikecount", "ballcount", 
                    "fullcount")
