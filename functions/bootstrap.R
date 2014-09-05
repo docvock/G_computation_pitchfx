@@ -8,9 +8,18 @@
 ####################################
 
 
-# B=number of bootstrap samples.
-
 bootstrap.se <- function(pitchfx = pitchfx, B, seed){
+	# Wrapper function to implement the bootstrap resampling.
+	#
+	# Args:
+	# pitchfx: Dataset with pitchfx data
+	# B: Number of bootstrap samples.
+	# seed: Seed to use in the randomization.
+	# Returns:
+	# Three-dimensional array with the estimated proportion of plate appearances that result in a hit,
+	#   walk, out, batting average, on-base percentage, and slugging percentage for each of the 16 
+	#   combinations of models for plate discipline, hitting ability, strike zone called, and pitch 
+	#   selection for each of the B boostrap samples.
 
   set.seed(seed)
   num.SC <- sum(pitchfx$starlin) 

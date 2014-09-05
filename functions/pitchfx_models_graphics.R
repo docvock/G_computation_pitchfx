@@ -34,6 +34,24 @@ colnames(pitch_type_avg) <- c("pfx_x","pfx_z","start_speed","pitch_type_alt1")
 
 model_diagnostic_graphics <- function(data, outcome, model, count, main_title, plot_points = "Y",
 	surv_prob = 1, complement = "N") {
+	# Function which produces plots of the estimated probability of event across the strike zone 
+	# at the average movement and speed for the six major pitch types. 
+	#
+	# Args:
+	# data: Data from which the spatial location of observations used to estimate the model
+	#       should be plotted if plot_points = "Y" or "S".
+	# outcome: Vector of binary outcome variables that correspond to the spatial points in data.
+	# model: Model output which will be used to generate estimated probabilities. 
+	# count: Count at which predictions should be made.
+	# main_title: Main title of plot.
+	# plot_points: If "Y", then the spatial location of all observations used to estimate the 
+	#              probability should be plotted. If "S", only then the spatial location of 
+	#              the successes should be plotted. If "N" no points should be plotted. 
+	# surv_prob: Vector that the estimated probability will be multiplied by. Useful if we are estimating a 
+	#            conditional model (i.e., probability of getting hit, given ball put in play) but want an
+	#            estimate of the marginal probability.
+	# complement: If "Y", then plot 1 - estimated probability. 
+	
 	grid_pred <- expand.grid(seq(from = -2, to = 2, by = 0.05), seq(from = 0.5, to = 4.5, by = 0.05),
 		c("CH", "SL", "CU", "FF", "FT", "FC"))
 	colnames(grid_pred) <- c("px", "pz", "pitch_type_alt1")
