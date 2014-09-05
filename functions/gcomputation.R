@@ -12,24 +12,28 @@
 model_outcomes <- function(hitting_ability, plate_discipline, pitch_selection, strikezone,
                            mccutchen_models = mccutchen_models, castro_models = castro_models, 
                            pitchfx = pitchfx) {
-	
-  # Computes the estimated batting average, on-base percentage, and slugging percentage
+	# Computes the estimated batting average, on-base percentage, and slugging percentage
 	# using the G-computation algorithm using the generalized additive model results of either
 	# Andrew McCutchen's or Starlin Castro's hitting ability, plate discipline, pitch selection,
 	# and strike zone called.
-  #
-  # Args:
-  # plate_discipline: The estimated probability of swi 
-	# hitting_ability: Given a pitch is swung at, the probability the pitch results in a whiff,
-	#                    foul, out, or hit (and the number of bases) is based on models from either
-	#                    Castro or McCutchen. 
-	
-  #   y: The other vector. x and y must have the same length, greater than one,
-  #      with no missing values.
-  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
-  #
-  # Returns:
-  #   The sample covariance between x and y.
+	#
+	# Args:
+	# plate_discipline: Either "Castro" or "McCutchen". Defines which player's model for the 
+	#                   probability of swinging at the pitch is used in the G-computation.  
+	# hitting_ability: Either "Castro" or "McCutchen". Defines which player's model for the 
+	#                  probability the pitch results in a whiff, foul, out, or hit (and the 
+	#                  number of bases), given the pitch is swung at, is used in the G-computation 
+	# strike_zone: Either "Castro" or "McCutchen". Defines which player's model for the 
+	#              probability a pitch is called a strike is used in the G-computation.
+	# pitch_selection: Either "Castro" or "McCutchen". The pitches that this player saw during the 
+	#                  season are used in the G-computation.
+	# mccutchen_models: List of generalized additive models for Andrew McCutchen.
+	# castro_models: List of generalized additive models for Starlin Castro
+	# pitchfx: Dataset of pitch information for Castro and McCutchen
+	#
+	# Returns:
+	#   A list with the proportion of plate appearances that result in a hit, walk, out,
+	#   batting average, on-base percentage, and slugging percentage.
 	
   ## Define outcomes of interest
   outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "strikecount", "ballcount", 
