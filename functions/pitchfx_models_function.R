@@ -13,6 +13,24 @@
 gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.swing = rep(-1, 3), 
                        sp.whiff = rep(-1, 3), sp.foul = rep(-1, 3), sp.hit = rep(-1, 3),
                        sp.tb = rep(-1, 3), sp.strike = rep(-1, 3)) {
+	# Computes generalized additive models for the probability of swinging at pitch, probability of
+	# whiffing given pitch is swung at, probability of fouling off pitch given batter makes contact,
+	# probability of hitting safely given ball is put in play, the expected total bases given ball is
+	# put in play, and probability pitch is called strike given batter does not swing.
+	#
+	# Args:
+	# pitchfx: Dataset with pitchfx data and outcomes of pitch possibly for multiple players.
+	# batter_id: Pitchfx id of the batter for whom we are developing models.
+	# verbose: If equal to TRUE then the summary of the GAM should be printed and a pdf of the
+	#          estimated probability by location and pitch type should be output.
+	# count_use: The count that should be used for the estimated probability.
+	# sp.swing, sp.whiff, sp.foul, sp.hit, sp.tb, sp.strike: The smoothing parameters that should be
+	#           used in the model for the probability of swinging, whiffing, fouling, hitting safely, 
+	#           total bases, and having a strike called.  The default is -1 for all parameters which
+	#           indicates that these parameters should be estimated. 
+  # Returns:
+	# List of the generalized additive model output from each model. 
+	
 	pitchfx_id <- filter(pitchfx, batter == batter_id)
 	pitchfx_swing_id <- filter(pitchfx_id, swing == 1)
 	pitchfx_noswing_id <- filter(pitchfx_id, swing == 0)
