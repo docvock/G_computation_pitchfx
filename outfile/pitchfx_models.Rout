@@ -25,7 +25,7 @@ Formula:
 swing ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                       Estimate Std. Error z value Pr(>|z|)    
@@ -63,7 +63,7 @@ Formula:
 whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)    
@@ -94,7 +94,7 @@ Formula:
 foul ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)
@@ -124,7 +124,7 @@ Formula:
 hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)    
@@ -154,7 +154,7 @@ Formula:
 total_bases ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)    
@@ -184,7 +184,7 @@ Formula:
 called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b698bc8>
+<environment: 0x000000000b6980d8>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
@@ -217,7 +217,6 @@ Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
-[1] "Fitting strike model"
 [1] "Models for Andrew McCutchen"
 [1] "Fitting swing model"
 
@@ -228,7 +227,7 @@ Formula:
 swing ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
@@ -266,7 +265,7 @@ Formula:
 whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)    
@@ -297,7 +296,7 @@ Formula:
 foul ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)
@@ -327,7 +326,7 @@ Formula:
 hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)   
@@ -359,7 +358,7 @@ Formula:
 total_bases ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
     s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", 
     k = 30)
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                         Estimate Std. Error z value Pr(>|z|)    
@@ -391,7 +390,7 @@ Formula:
 called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000ef38360>
+<environment: 0x000000000eeed4d8>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
@@ -424,7 +423,6 @@ Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
-[1] "Fitting strike model"
 > proc.time()
    user  system elapsed 
- 330.80    4.18  335.65 
+ 312.70    7.16  320.50 
