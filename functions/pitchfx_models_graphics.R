@@ -57,7 +57,7 @@ model_diagnostic_graphics <- function(data, outcome, model, count, main_title, p
 	colnames(grid_pred) <- c("px", "pz", "pitch_type_alt1")
 	grid_pred <- as.data.frame(grid_pred)
 	grid_pred <- inner_join(grid_pred,pitch_type_avg)
-	grid_pred$count <- count
+	grid_pred$count <- grid_pred$count_alt <-count
 	grid_pred$strikecount <- as.numeric(substr(grid_pred$count,3,3))
 	grid_pred$ballcount = as.numeric(substr(grid_pred$count,1,1))
 	grid_pred$pred_outcome <- predict(model, newdata=grid_pred, type="response")

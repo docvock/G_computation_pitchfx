@@ -70,7 +70,7 @@ for (m in c("Castro", "McCutchen")) {
     			pitchfx = pitchfx_i)))
 }}}}
     OUT[, , i] <- OUT.ITER
-    
+    print(i)
 
 }
   return(OUT)

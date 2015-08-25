@@ -63,7 +63,7 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	
 	# Given batter swings, estimate probability the batter whiffs using GAM
 	print("Fitting whiff model")
-	whiff_gam <- gam(whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) + 
+	whiff_gam <- gam(whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt) + 
                     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
                     family = "binomial", link = "logit", sp = sp.whiff, data = pitchfx_swing_id)
 	if (verbose == T) {
@@ -100,9 +100,9 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# GAM
 	print("Fitting foul model")
 	pitchfx_swing_id_sub1 <- filter(pitchfx_swing_id, result != "whiff")
-	foul_gam <- gam(foul ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) +
-                   s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", k = 30),
-                   family = "binomial", link = "logit", sp = sp.foul, data = pitchfx_swing_id_sub1)
+	foul_gam <- gam(foul ~ s(start_speed, bs = "ts", k = 30) + 
+			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
+		family = "binomial", link = "logit", sp = sp.foul, data = pitchfx_swing_id_sub1)
 	if (verbose == T) {
 		print(summary(foul_gam))
 		pdf(paste("baseball_graphics_3yr/foul_gam_", batter_name_use, ".pdf", sep=""), 
@@ -138,8 +138,8 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# hits safely using GAM
 	print("Fitting hit model")
 	pitchfx_swing_id_sub2 <- filter(pitchfx_swing_id, result != "whiff" & result != "foul")
-	hit_gam <- gam(hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) +
-                  s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", k = 30),
+	hit_gam <- gam(hit_safe ~ s(start_speed, bs = "ts", k = 30) +
+			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
 	                family = "binomial", link = "logit", sp = sp.hit, data = pitchfx_swing_id_sub2)
 	if (verbose == T) {
 		print(summary(hit_gam))
@@ -176,9 +176,9 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# Given batter swings, makes contact, and put ball into play, estimate the total number of bases 
 	# the batter hits safely using GAM
 	print("Fitting total bases model")
-	tb_gam <- gam(total_bases ~ s(start_speed, bs = "ts", k = 30) + as.factor(strikecount) +
-                  s(px, pz, bs = "ts", k = 30) + s(pfx_x, pfx_z, bs = "ts", k = 30),
-	                family = "poisson", link = "log", sp = sp.tb, data = pitchfx_swing_id_sub2)
+	tb_gam <- gam(total_bases ~ s(start_speed, bs = "ts", k = 30) +
+			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
+		family = "poisson", link = "log", sp = sp.tb, data = pitchfx_swing_id_sub2)
 	if (verbose == T) {
 		print(summary(tb_gam))
 		pdf(paste("baseball_graphics_3yr/total_bases_gam_", batter_name_use, ".pdf", sep=""), 
@@ -215,9 +215,9 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# Given the batter does not swing at pitch, estimate the probability pitch is called a strike
 	# using GAM
 	print("Fitting strike model")
-	strike_gam <- gam(called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) +
-	                 te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
-	                 family = "binomial", link = "logit", sp = sp.strike, data = pitchfx_noswing_id)
+	strike_gam <- gam(called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
+			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
+		family = "binomial", link = "logit", sp = sp.strike, data = pitchfx_noswing_id)
 	if (verbose == T) {
 		print(summary(strike_gam))
 		pdf(paste("baseball_graphics_3yr/called_strike_gam_", batter_name_use, ".pdf", sep=""), 

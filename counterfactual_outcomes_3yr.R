@@ -22,7 +22,7 @@ pitchfx <- read.table("data/pitchfx_processed_3yr.txt",sep="\t",header=T)
 pitchfx <- as.data.frame(pitchfx)
 
 # Read-in Model, G-computation, Boostrap Function
-source("functions/gcomputation.R")
+source("functions/gcomputation_3yr.R")
 source("functions/pitchfx_models_3yr_function.R")
 source("functions/bootstrap.R")
 
@@ -37,9 +37,9 @@ for (j in c("Castro", "McCutchen")) {
 					pitchfx = pitchfx)))
 }}}}
 
-
-boot.data <- bootstrap.se(pitchfx = pitchfx, B = 50, seed = 1101985)
-
+start <- proc.time()
+boot.data <- bootstrap.se(pitchfx = pitchfx, B = 100, seed = 1101985)
+proc.time()-start
 
 effects <- expand.grid(strikezone = c("Castro", "McCutchen"), 
                        pitch_selection = c("Castro", "McCutchen"),

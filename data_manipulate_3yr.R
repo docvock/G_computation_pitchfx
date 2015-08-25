@@ -16,6 +16,12 @@ pitchfx <- as.data.frame(pitchfx)
 
 # Data manipulation
 
+# chnage fan interference to appropriate category
+pitchfx$event[pitchfx$event == "Fan interference" & grepl("triple", pitchfx$atbat_des) == TRUE] <-
+	"Triple"
+pitchfx$event[pitchfx$event == "Fan interference" & grepl("double", pitchfx$atbat_des) == TRUE] <-
+	"Double"
+
 # Add additional variables
 pitchfx <- mutate(pitchfx, 
 	# Add indicator variable for Starlin Castro
@@ -34,9 +40,6 @@ pitchfx <- mutate(pitchfx,
 	swing = ifelse((grepl("Swinging Strike", des) == T) | 
 									(grepl("Foul", des) ==T) |
 									(grepl("In play", des) ==T), 1, 0),
-	# chnage fan interference to appropriate category
-	event = ifelse(event == "Fan interference" & grepl("triple", atbat_des), "Triple", event),
-	event = ifelse(event == "Fan interference" & grepl("double", atbat_des), "Double", event),
 	# indicator for hitting safely
 	hit_safe = ifelse(grepl("In play", des) == T &
 			(grepl("Single", event) == T | 
@@ -55,7 +58,7 @@ pitchfx <- mutate(pitchfx,
 	# indicator for two strike, thee ball, and full count
 	strike2 = ifelse(strikecount == 2, 1, 0),
 	ball3 = ifelse(ballcount == 3, 1, 0),
-	fullcount = ifelse(strikecount == 2 & ballcount == 3, 1, 0)
+	fullcount = ifelse(strikecount == 2 & ballcount == 3, 1, 0),
 	# indicator for fouling off pitch
 	foul = ifelse(grepl("Foul", des) == T, 1, 0),
 	foul = ifelse(grepl("Foul Tip", des) == T & strike2 == 1, 0, foul),
@@ -74,19 +77,21 @@ pitchfx <- mutate(pitchfx,
 			ifelse(whiff == 1, "whiff",
 				ifelse(foul == 1, "foul", 
 					ifelse(ball == 1, "ball",
-						ifelse(called_strike == 1,"called_strike", "wrong")))))),
+						ifelse(called_strike == 1,"called_strike", "wrong"))))))
 	#check to ensure categories are mutally exclusive
-	result = ifelse(inplay_out + hit_safe + whiff + foul + ball + called_strike > 1, "wrong", "result")
+	#result = ifelse(inplay_out + hit_safe + whiff + foul + ball + called_strike > 1, "wrong", result)
 	)
 
+pitchfx$count_alt <- pitchfx$count
+pitchfx$count_alt[pitchfx$count_alt == "3-0" & pitchfx$starlin == 1] <- "2-0"
 pitchfx <- select(pitchfx, -atbat_des)
 
 # subset to pitches only from right-handed pitchers
 pitchfx <- filter(pitchfx, p_throws == "R")
 
-# subset to exclude sacrifices, hit by pitch, and if caught stealing ends inning
+# subset to exclude sacrifices, hit by pitch, intentional walk, and if caught stealing ends inning
 pitchfx <- filter(pitchfx, grepl("Sac Bunt", event) == F & grepl("Sac Fly", event) == F &
-		grepl("Hit By Pitch", event) == F, grepl("Runner Out", event) == F)
+		grepl("Hit By Pitch", event) == F & grepl("Runner Out", event) == F)
 
 # Write data to .txt file
 write.table(pitchfx,'data/pitchfx_processed_3yr.txt',sep="\t",col.names=T,row.names=F)

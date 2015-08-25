@@ -36,11 +36,11 @@ model_outcomes <- function(hitting_ability, plate_discipline, pitch_selection, s
 	#   batting average, on-base percentage, and slugging percentage.
 	
   ## Define outcomes of interest
-  outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "strikecount", "ballcount", 
-                   "fullcount")
+  outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt", 
+  	"strikecount", "ballcount", "fullcount")
 
-  swingvars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "strikecount", "ballcount", 
-                  "fullcount")
+  swingvars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt",
+  	"strikecount", "ballcount", "fullcount")
   
   ## Designate the appropriate pitch dataset and models to use
   if(pitch_selection == "McCutchen") {
