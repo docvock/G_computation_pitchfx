@@ -22,7 +22,7 @@ pitchfx <- read.table("data/pitchfx_processed_3yr.txt",sep="\t",header=T)
 pitchfx <- as.data.frame(pitchfx)
 
 # Read-in Model, G-computation, Boostrap Function
-source("functions/gcomputation_3yr.R")
+source("functions/gcomputation_3yr_count.R")
 source("functions/pitchfx_models_3yr_function.R")
 source("functions/bootstrap.R")
 
@@ -36,6 +36,17 @@ for (j in c("Castro", "McCutchen")) {
 					strikezone = m, mccutchen_models = mccutchen_models, castro_models = castro_models, 
 					pitchfx = pitchfx)))
 }}}}
+
+
+t1 <- unlist(model_outcomes(hitting_ability = "Castro", plate_discipline = 
+		c("0-2", "1-2", "2-2", "3-2"), pitch_selection = "Castro",
+	strikezone = "Castro", mccutchen_models = mccutchen_models, castro_models = castro_models, 
+	pitchfx = pitchfx))
+
+t1 <- unlist(model_outcomes(hitting_ability = "Castro", plate_discipline = 
+		c("0-0", "0-2", "1-2", "2-2", "3-2"), pitch_selection = "Castro",
+	strikezone = "Castro", mccutchen_models = mccutchen_models, castro_models = castro_models, 
+	pitchfx = pitchfx))
 
 start <- proc.time()
 boot.data <- bootstrap.se(pitchfx = pitchfx, B = 100, seed = 1101985)
