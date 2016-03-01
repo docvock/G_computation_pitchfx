@@ -1,9 +1,9 @@
 ###################################
-# File: ./pitchfx_models_function.R
+# File: ./pitchfx_models_function_3yr.R
 #   Purpose: Function to develop models for whether or not batter swings, outcome if batter swings, and
 #		         whether or not pitch is called strike if the batter does not swing 
 #   Author: David M. Vock
-#   Last Modified: Augst 10, 2014
+#   Last Modified: Augst 25, 2015
 #   Relies On: ./pitchfx_models_graphics.R
 #   Files Created: NA 
 ####################################

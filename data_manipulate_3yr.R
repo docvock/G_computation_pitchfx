@@ -1,10 +1,10 @@
 ###################################
-# File: ./data_manipulate.R
+# File: ./data_manipulate_3yr.R
 #   Purpose: Process analysis dataset for use in models and graphics.
 #   Author: David M. Vock
-#   Last Modified: Augst 10, 2014
-#   Relies On: ./data_generate.R 
-#   Files Created: ./pitchfx_processed.txt 
+#   Last Modified: Augst 25, 2015
+#   Relies On: ./data_generate_3yr.R 
+#   Files Created: ./pitchfx_processed)3yr.txt 
 ####################################
 
 # Libraries used

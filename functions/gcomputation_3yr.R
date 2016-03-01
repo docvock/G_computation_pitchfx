@@ -2,7 +2,7 @@
 # File: ./gcomputation.R
 #   Purpose: File with function to implement G-computation 
 #   Author: David M. Vock
-#   Last Modified: Augst 10, 2014
+#   Last Modified: Augst 25, 2015
 #   Relies On: NA
 #   Files Created: NA
 ####################################

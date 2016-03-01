@@ -1,12 +1,12 @@
 ###################################
-# File: ./pitchfx_models.R
+# File: ./pitchfx_models_3yr.R
 #   Purpose: Develop models for whether or not batter swings, outcome if batter swings, and
 #		         whether or not pitch is called strike if the batter does not swing 
 #   Author: David M. Vock
-#   Last Modified: Augst 1, 2014
-#   Relies On: ./data_generate.R ./data_manipulate.R ./pitchfx_models_function.R 
+#   Last Modified: Augst 25, 2015
+#   Relies On: ./data_generate_3yr.R ./data_manipulate_3yr.R ./pitchfx_models_3yr_function.R 
 #              ./pitchfx_models_graphics.R
-#   Files Created: ./models.Rdata - contains all the models fit
+#   Files Created: ./models_3yr.Rdata - contains all the models fit
 #                  Graphical results of GAMs
 #                    ./baseball_graphics_3yr/swing_gam_Castro.pdf
 #                    ./baseball_graphics_3yr/whiff_gam_Castro.pdf

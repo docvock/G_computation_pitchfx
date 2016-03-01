@@ -11,9 +11,9 @@ The files in this repository comprise the source code for reproducing the work i
 
 ### File Organization
 
-The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball's Gameday website is contained in `data_generate.R`. This code produces the raw dataset `data/pitchfx_sc_am.txt` which is used throughout the project and is described in detail below. The file `data_manipulate.R` takes the raw data in `pitchfx_sc_am.txt` and generates several derived variables which are used throughout the analysis and generates the processed dataset `data/pitchfx_processed.txt`. The code to estimate the generalized additive models (GAMs) used model the outcomes of various pitches is contained in `pitchfx_models.R` which call the functions saved in `functions/pitchfx_models_function.R` and `functions/pitchfx_models_graphics.R`. The R workspace `models.Rdata` contains the output from the GAMs.
+The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball's Gameday website is contained in `data_generate_3yr.R`. This code produces the raw dataset `data/pitchfx_sc_am_3yr.txt` which is used throughout the project and is described in detail below. The file `data_manipulate_3yr.R` takes the raw data in `pitchfx_sc_am_3yr.txt` and generates several derived variables which are used throughout the analysis and generates the processed dataset `data/pitchfx_processed_3yr.txt`. The code to estimate the generalized additive models (GAMs) used to model the outcomes of various pitches is contained in `pitchfx_models_3yr.R` which call the functions saved in `functions/pitchfx_models_function_3yr.R` and `functions/pitchfx_models_graphics.R`. The R workspace `models_3yr.Rdata` contains the output from the GAMs. Due to the size of the file, this workspace is not saved in this repository.
 
-The estimated batting average, on-base percentage, and slugging percentage under different conterfactuals is produced in `counterfactual_outcomes.R` which uses the functions saved in `functions/gcomputation.R` and `functions/bootstrap.R` (the functions for the G-computation algorithm and the boostrap respectively).
+The estimated batting average, on-base percentage, and slugging percentage under different conterfactuals is produced in `counterfactual_outcomes_3yr.R` which uses the functions saved in `functions/gcomputation_3yr_count.R` and `functions/bootstrap.R` (the functions for the G-computation algorithm and the boostrap respectively).
 
 Miscellaneous graphics for the manuscript are generated in `pitchfx_graphics.R`. 
 
@@ -26,7 +26,7 @@ The main directory contains a `Makefile` which can be run to obtain all the outp
 
 ### Analysis Dataset
 
-The analysis dataset `data/pitchfx_sc_am.txt` contains data on all pitches thrown to Starlin Castro and Andrew McCutchen during the 2013 season and the outcome of those pitches. All of the data is taken directly from MLB Gameday without any processing. The contents of this file are summarized below. A more detailed explanation of many of these terms is given in Marchi and Albert (2013).  
+The analysis dataset `data/pitchfx_sc_am_3yr.txt` contains data on all pitches thrown to Starlin Castro and Andrew McCutchen during the 2012 - 2014 seasons and the outcome of those pitches. All of the data is taken directly from MLB Gameday without any processing. The contents of this file are summarized below. A more detailed explanation of many of these terms is given in Marchi and Albert (2013).  
 
 
 ```
@@ -72,7 +72,8 @@ The analysis dataset `data/pitchfx_sc_am.txt` contains data on all pitches throw
 ## |stand           |Batter stance (left or right)                                                                       |
 ## |b_height        |Batter height                                                                                       |
 ## |p_throws        |Pitcher throws (left or right)                                                                      |
-## |event           |Summary of at-bat                                                                                   |
+## |atbat_des       |Lengthier description of at-bat                                                                     |
+## |event           |End result of at-bat                                                                                |
 ## |batter_name     |Batter name                                                                                         |
 ## |pitcher_name    |Pitcher name                                                                                        |
 ```
@@ -82,8 +83,9 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 
 
 ```
-## R version 3.1.1 (2014-07-10)
+## R version 3.1.3 (2015-03-09)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
 ## 
 ## locale:
 ## [1] LC_COLLATE=English_United States.1252 
@@ -99,7 +101,7 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 ## [1] knitr_1.6
 ## 
 ## loaded via a namespace (and not attached):
-## [1] evaluate_0.5.5 formatR_0.10   stringr_0.6.2  tools_3.1.1
+## [1] evaluate_0.5.5 formatR_0.10   stringr_0.6.2  tools_3.1.3
 ```
 
 ---

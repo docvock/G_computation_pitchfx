@@ -1,0 +1,82 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+spatstat 1.37-0       (nickname: 'Model Prisoner') 
+For an introduction to spatstat, type 'beginner'
+Loading required package: nlme
+
+Attaching package: 'nlme'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+This is mgcv 1.8-4. For overview type 'help("mgcv-package")'.
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  34 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+3: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  10 points were rejected as lying outside the specified window
+4: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  16 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  6 points were rejected as lying outside the specified window
+3: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  288 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+3: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  406 points were rejected as lying outside the specified window
+4: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+null device 
+          1 
+Warning messages:
+1: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  75 points were rejected as lying outside the specified window
+2: In ppp(dataset$px[crit.sc], dataset$pz[crit.sc], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+3: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  108 points were rejected as lying outside the specified window
+4: In ppp(dataset$px[crit.am], dataset$pz[crit.am], c(-2, 2), c(0.5,  :
+  data contain duplicated points
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+> proc.time()
+   user  system elapsed 
+  62.72    0.92   64.08 

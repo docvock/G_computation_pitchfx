@@ -1,0 +1,14 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+> proc.time()
+   user  system elapsed 
+   2.97    0.06    3.15 

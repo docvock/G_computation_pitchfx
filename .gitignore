@@ -1,6 +1,9 @@
 .Rproj.user
 .Rhistory
 .RData
+.docx
 baseball_causal_inference.Rproj
 models.Rdata
 models_3yr.Rdata
+/single_year
+/manuscript
