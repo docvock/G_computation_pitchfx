@@ -77,6 +77,71 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 
 
 ```
+## Loading required package: nlme
+```
+
+```
+## This is mgcv 1.8-9. For overview type 'help("mgcv-package")'.
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following object is masked from 'package:nlme':
+## 
+##     collapse
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```
+## Error in library(pitchRx): there is no package called 'pitchRx'
+```
+
+```
+## -------------------------------------------------------------------------
+```
+
+```
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+```
+
+```
+## -------------------------------------------------------------------------
+```
+
+```
+## 
+## Attaching package: 'plyr'
+```
+
+```
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+```
+
+```
+## Error in library(spatstat): there is no package called 'spatstat'
+```
+
+```
 ## R version 3.2.3 (2015-12-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 7 x64 (build 7601) Service Pack 1
@@ -92,13 +157,15 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] knitr_1.12   dplyr_0.4.3  xtable_1.8-0 mgcv_1.8-9   nlme_3.1-122
+## [1] RColorBrewer_1.1-2 lattice_0.20-33    plyr_1.8.3        
+## [4] dplyr_0.4.3        xtable_1.8-0       mgcv_1.8-9        
+## [7] nlme_3.1-122       knitr_1.12        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.2     lattice_0.20-33 assertthat_0.1  grid_3.2.3     
-##  [5] R6_2.1.1        DBI_0.3.1       formatR_1.2.1   magrittr_1.5   
-##  [9] evaluate_0.8    highr_0.5.1     stringi_1.0-1   Matrix_1.2-3   
-## [13] tools_3.2.3     stringr_1.0.0   parallel_3.2.3
+##  [1] Rcpp_0.12.2    assertthat_0.1 grid_3.2.3     R6_2.1.1      
+##  [5] DBI_0.3.1      formatR_1.2.1  magrittr_1.5   evaluate_0.8  
+##  [9] highr_0.5.1    stringi_1.0-1  Matrix_1.2-3   tools_3.2.3   
+## [13] stringr_1.0.0  parallel_3.2.3
 ```
 
 ---

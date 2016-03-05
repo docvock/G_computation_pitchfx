@@ -82,6 +82,15 @@ rm(list=ls())
 This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.983 for Windows) with the following R session:
 
 ```{r, echo=FALSE}
+# upload all packages used so that information is included in session info
+library(mgcv)
+library(xtable)
+library(dplyr)
+library(pitchRx)
+library(plyr)
+library(lattice)
+library(spatstat)
+library(RColorBrewer)
 sessionInfo()
 ```
 
