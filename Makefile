@@ -15,7 +15,7 @@ FIGDIR= ./figs
 # list R files
 # RFILES := $(wildcard $(RDIR)/*.R)
 # Indicator files to show R file has run
-OUT_FILES:= $(RDIR)/outfile/data_generate_3yr.Rout $(RDIR)/outfile/README.Rout $(RDIR)/outfile/data_manipulate_3yr.Rout $(RDIR)/outfile/pitchfx_models_3yr.Rout $(RDIR)/outfile/pitchfx_models_3yr.Rout $(RDIR)/outfile/pitchfx_graphics.Rout $(RDIR)/outfile/counterfactual_outcomes_3yr.Rout $(RDIR)/outfile/calibrating_models.Rout
+OUT_FILES:= $(RDIR)/outfile/data_generate_3yr.Rout $(RDIR)/outfile/README.Rout $(RDIR)/outfile/data_manipulate_3yr.Rout $(RDIR)/outfile/pitchfx_models_3yr.Rout $(RDIR)/outfile/pitchfx_models_3yr.Rout $(RDIR)/outfile/manuscript_graphics.Rout $(RDIR)/outfile/counterfactual_outcomes_3yr.Rout $(RDIR)/outfile/calibrating_models.Rout
 
 all: $(OUT_FILES)
 

@@ -68,4 +68,4 @@ output file: README.md
 [1] "README.md"
 > proc.time()
    user  system elapsed 
-   3.86    0.23    4.10 
+   3.93    0.15    4.08 

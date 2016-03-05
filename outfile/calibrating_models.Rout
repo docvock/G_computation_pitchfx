@@ -1,0 +1,43 @@
+Loading required package: dplyr
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: xtable
+                    McCutchen     Castro
+outcome.hit_safe    0.2750000 0.26110731
+outcome.out         0.6121795 0.69651401
+outcome.walk        0.1128205 0.04237867
+batting_average     0.3099711 0.27266238
+on_base_percentage  0.3878205 0.30348599
+slugging_percentage 0.5122832 0.40685225
+% latex table generated in R 3.2.3 by xtable 1.8-0 package
+% Sat Mar 05 12:55:19 2016
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & 1 & 2 \\ 
+  \hline
+1 & 1401.00 & 1384.00 \\ 
+  2 & 1463.00 & 1560.00 \\ 
+  3 & 0.27 & 0.31 \\ 
+  4 & 0.30 & 0.39 \\ 
+  5 & 0.41 & 0.51 \\ 
+   \hline
+\end{tabular}
+\caption{3} 
+\end{table}
+Warning message:
+In data.row.names(row.names, rowsi, i) :
+  some row.names duplicated: 2,3,4 --> row.names NOT used
+> proc.time()
+   user  system elapsed 
+   1.37    0.07    1.43 

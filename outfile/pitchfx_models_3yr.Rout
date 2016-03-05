@@ -448,4 +448,4 @@ Joining by: "pitch_type_alt1"
 There were 18 warnings (use warnings() to see them)
 > proc.time()
    user  system elapsed 
- 814.66   13.47  828.63 
+ 815.04   12.18  827.47 

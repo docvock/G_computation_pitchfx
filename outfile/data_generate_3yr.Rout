@@ -995,4 +995,4 @@ http://gd2.mlb.com/components/game/mlb/year_2014/month_05/day_01/gid_2014_05_01_
 http://gd2.mlb.com/components/game/mlb/year_2014/month_05/day_18/gid_2014_05_18_pitmlb_nyamlb_2/inning/inning_all.xml 
 > proc.time()
    user  system elapsed 
- 244.59    2.23  435.71 
+ 243.95    2.38  430.59 

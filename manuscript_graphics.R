@@ -14,6 +14,7 @@
 library(dplyr)
 library(lattice)
 library(RColorBrewer)
+library(mgcv)
 
 # Load data
 pitchfx <- read.table("data/pitchfx_processed_3yr_nomiss.txt",sep="\t",header=T)

@@ -38,7 +38,7 @@ for (j in c("Castro", "McCutchen")) {
 
 
 start <- proc.time() 
-boot.data <- bootstrap.se(pitchfx = pitchfx, B = 2, seed = 1101985)
+boot.data <- bootstrap.se(pitchfx = pitchfx, B = 100, seed = 1101985)
 proc.time()-start
 
 effects <- expand.grid(strikezone = c("Castro", "McCutchen"), 

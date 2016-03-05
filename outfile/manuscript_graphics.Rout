@@ -1,0 +1,121 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: nlme
+
+Attaching package: 'nlme'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+This is mgcv 1.8-12. For overview type 'help("mgcv-package")'.
+Current plotting function only allows unadjusted plots of swing outcome 
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Current plotting function only allows unadjusted plots of swing outcome 
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+Warning message:
+In rbind_all(x, .id) : Unequal factor levels: coercing to character
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+> proc.time()
+   user  system elapsed 
+ 107.20    3.27  110.54 
