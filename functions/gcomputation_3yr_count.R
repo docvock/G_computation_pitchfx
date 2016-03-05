@@ -39,10 +39,10 @@ model_outcomes <- function(hitting_ability, plate_discipline, pitch_selection, s
 	#   batting average, on-base percentage, and slugging percentage.
 	
 	## Define outcomes of interest
-	outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt", 
+	outcomevars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt", "count_alt2",
 		"strikecount", "ballcount", "fullcount")
 	
-	swingvars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt",
+	swingvars <- c("px", "pz", "pfx_x", "pfx_z", "start_speed", "count", "count_alt", "count_alt2",
 		"strikecount", "ballcount", "fullcount")
 	
 	## Designate the appropriate pitch dataset and models to use

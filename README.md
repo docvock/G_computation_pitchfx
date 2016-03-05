@@ -11,16 +11,17 @@ The files in this repository comprise the source code for reproducing the work i
 
 ### File Organization
 
-The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball's Gameday website is contained in `data_generate_3yr.R`. This code produces the raw dataset `data/pitchfx_sc_am_3yr.txt` which is used throughout the project and is described in detail below. The file `data_manipulate_3yr.R` takes the raw data in `pitchfx_sc_am_3yr.txt` and generates several derived variables which are used throughout the analysis and generates the processed dataset `data/pitchfx_processed_3yr.txt`. The code to estimate the generalized additive models (GAMs) used to model the outcomes of various pitches is contained in `pitchfx_models_3yr.R` which call the functions saved in `functions/pitchfx_models_function_3yr.R` and `functions/pitchfx_models_graphics.R`. The R workspace `models_3yr.Rdata` contains the output from the GAMs. Due to the size of the file, this workspace is not saved in this repository.
+The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball's Gameday website is contained in `data_generate_3yr.R`. This code produces the raw dataset `data/pitchfx_sc_am_3yr.txt` which is used throughout the project and is described in detail below. The file `data_manipulate_3yr.R` takes the raw data in `pitchfx_sc_am_3yr.txt` and generates several derived variables which are used throughout the analysis and generates the processed dataset `data/pitchfx_processed_3yr.txt`. The code to estimate the generalized additive models (GAMs) used to model the outcomes of various pitches is contained in `pitchfx_models_3yr.R` which call the functions saved in `functions/pitchfx_models_function_3yr.R` and `functions/pitchfx_models_graphics.R`. Diagnostic graphics are output to the `/baseball_graphics_3yr/` directory.  The R workspace `models_3yr.Rdata` contains the output from the GAMs. Due to the size of the file, this workspace is not saved in this repository.
 
-The estimated batting average, on-base percentage, and slugging percentage under different conterfactuals is produced in `counterfactual_outcomes_3yr.R` which uses the functions saved in `functions/gcomputation_3yr_count.R` and `functions/bootstrap.R` (the functions for the G-computation algorithm and the bootstrap respectively).
+The estimated batting average, on-base percentage, and slugging percentage under different conterfactual pitch selection, plate discipline, and batting ability is produced in `counterfactual_outcomes_3yr.R` which uses the functions saved in `functions/gcomputation_3yr_count.R` and `functions/bootstrap.R` (the functions for the G-computation algorithm and the bootstrap respectively).
 
-Diagnostic graphics and miscellaneous graphics for the manuscript are generated in `pitchfx_graphics.R` and `manuscript_graphics.R`, respectively. Graphics are output in the `/baseball_graphics_3yr/` directory.  
+Miscellaneous graphics for the manuscript are generated in `manuscript_graphics.R`, respectively. Graphics are output to the `/manuscript_graphics/` directory which is not included in the repository.  
+
 Finally, code to calculate the batting average, on-base percentage, and slugging percentage, among plate appearances included in this analysis is contained in `calibrating_models.R`. 
 
 ### Reproduce the Output and Manuscript
 
-The main directory contains a `Makefile` which can be run to obtain all the output for the manuscript and compile the manuscript.  This makefile encodes the dependencies between the different files described above. For those not familiar with makefiles, we have included a "Make-like" file, `master_source.R` which indicates the order in which the .R files should be sourced.
+The main directory contains a `Makefile` which can be run to obtain all the output for the manuscript and compile the manuscript.  This makefile encodes the dependencies between the different files described above. For those not familiar with makefiles, we have included a "Make-like" file, `rmaster_source.R` which indicates the order in which the .R files should be sourced.
 
 ### Analysis Dataset
 
@@ -77,71 +78,6 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 
 
 ```
-## Loading required package: nlme
-```
-
-```
-## This is mgcv 1.8-9. For overview type 'help("mgcv-package")'.
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following object is masked from 'package:nlme':
-## 
-##     collapse
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```
-## Error in library(pitchRx): there is no package called 'pitchRx'
-```
-
-```
-## -------------------------------------------------------------------------
-```
-
-```
-## You have loaded plyr after dplyr - this is likely to cause problems.
-## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
-## library(plyr); library(dplyr)
-```
-
-```
-## -------------------------------------------------------------------------
-```
-
-```
-## 
-## Attaching package: 'plyr'
-```
-
-```
-## The following objects are masked from 'package:dplyr':
-## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-##     summarize
-```
-
-```
-## Error in library(spatstat): there is no package called 'spatstat'
-```
-
-```
 ## R version 3.2.3 (2015-12-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 7 x64 (build 7601) Service Pack 1
@@ -157,15 +93,20 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] RColorBrewer_1.1-2 lattice_0.20-33    plyr_1.8.3        
-## [4] dplyr_0.4.3        xtable_1.8-0       mgcv_1.8-9        
-## [7] nlme_3.1-122       knitr_1.12        
+##  [1] RColorBrewer_1.1-2 spatstat_1.44-1    lattice_0.20-33   
+##  [4] plyr_1.8.3         pitchRx_1.8.2      ggplot2_2.0.0     
+##  [7] dplyr_0.4.3        xtable_1.8-0       mgcv_1.8-12       
+## [10] nlme_3.1-122       knitr_1.12        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.2    assertthat_0.1 grid_3.2.3     R6_2.1.1      
-##  [5] DBI_0.3.1      formatR_1.2.1  magrittr_1.5   evaluate_0.8  
-##  [9] highr_0.5.1    stringi_1.0-1  Matrix_1.2-3   tools_3.2.3   
-## [13] stringr_1.0.0  parallel_3.2.3
+##  [1] Rcpp_0.12.2      formatR_1.2.1    highr_0.5.1      bitops_1.0-6    
+##  [5] tools_3.2.3      digest_0.6.9     goftest_1.0-3    evaluate_0.8    
+##  [9] gtable_0.1.2     Matrix_1.2-3     DBI_0.3.1        parallel_3.2.3  
+## [13] hexbin_1.27.1    stringr_1.0.0    grid_3.2.3       R6_2.1.1        
+## [17] XML_3.98-1.4     rmarkdown_0.9.2  polyclip_1.4-1   tensor_1.5      
+## [21] XML2R_0.0.6      deldir_0.1-9     magrittr_1.5     scales_0.3.0    
+## [25] htmltools_0.3    MASS_7.3-45      assertthat_0.1   abind_1.4-3     
+## [29] colorspace_1.2-6 stringi_1.0-1    RCurl_1.95-4.8   munsell_0.4.2
 ```
 
 ---

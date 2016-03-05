@@ -73,13 +73,14 @@ img {
 </div>
 <div id="file-organization" class="section level3">
 <h3>File Organization</h3>
-<p>The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball’s Gameday website is contained in <code>data_generate_3yr.R</code>. This code produces the raw dataset <code>data/pitchfx_sc_am_3yr.txt</code> which is used throughout the project and is described in detail below. The file <code>data_manipulate_3yr.R</code> takes the raw data in <code>pitchfx_sc_am_3yr.txt</code> and generates several derived variables which are used throughout the analysis and generates the processed dataset <code>data/pitchfx_processed_3yr.txt</code>. The code to estimate the generalized additive models (GAMs) used to model the outcomes of various pitches is contained in <code>pitchfx_models_3yr.R</code> which call the functions saved in <code>functions/pitchfx_models_function_3yr.R</code> and <code>functions/pitchfx_models_graphics.R</code>. The R workspace <code>models_3yr.Rdata</code> contains the output from the GAMs. Due to the size of the file, this workspace is not saved in this repository.</p>
-<p>The estimated batting average, on-base percentage, and slugging percentage under different conterfactuals is produced in <code>counterfactual_outcomes_3yr.R</code> which uses the functions saved in <code>functions/gcomputation_3yr_count.R</code> and <code>functions/bootstrap.R</code> (the functions for the G-computation algorithm and the bootstrap respectively).</p>
-<p>Diagnostic graphics and miscellaneous graphics for the manuscript are generated in <code>pitchfx_graphics.R</code> and <code>manuscript_graphics.R</code>, respectively. Graphics are output in the <code>/baseball_graphics_3yr/</code> directory.<br />Finally, code to calculate the batting average, on-base percentage, and slugging percentage, among plate appearances included in this analysis is contained in <code>calibrating_models.R</code>.</p>
+<p>The code to obtain Gameday data, including pitchf/x data, for Starlin Castro and Andrew McCutchen from the XML files available from Major League Baseball’s Gameday website is contained in <code>data_generate_3yr.R</code>. This code produces the raw dataset <code>data/pitchfx_sc_am_3yr.txt</code> which is used throughout the project and is described in detail below. The file <code>data_manipulate_3yr.R</code> takes the raw data in <code>pitchfx_sc_am_3yr.txt</code> and generates several derived variables which are used throughout the analysis and generates the processed dataset <code>data/pitchfx_processed_3yr.txt</code>. The code to estimate the generalized additive models (GAMs) used to model the outcomes of various pitches is contained in <code>pitchfx_models_3yr.R</code> which call the functions saved in <code>functions/pitchfx_models_function_3yr.R</code> and <code>functions/pitchfx_models_graphics.R</code>. Diagnostic graphics are output to the <code>/baseball_graphics_3yr/</code> directory. The R workspace <code>models_3yr.Rdata</code> contains the output from the GAMs. Due to the size of the file, this workspace is not saved in this repository.</p>
+<p>The estimated batting average, on-base percentage, and slugging percentage under different conterfactual pitch selection, plate discipline, and batting ability is produced in <code>counterfactual_outcomes_3yr.R</code> which uses the functions saved in <code>functions/gcomputation_3yr_count.R</code> and <code>functions/bootstrap.R</code> (the functions for the G-computation algorithm and the bootstrap respectively).</p>
+<p>Miscellaneous graphics for the manuscript are generated in <code>manuscript_graphics.R</code>, respectively. Graphics are output to the <code>/manuscript_graphics/</code> directory which is not included in the repository.</p>
+<p>Finally, code to calculate the batting average, on-base percentage, and slugging percentage, among plate appearances included in this analysis is contained in <code>calibrating_models.R</code>.</p>
 </div>
 <div id="reproduce-the-output-and-manuscript" class="section level3">
 <h3>Reproduce the Output and Manuscript</h3>
-<p>The main directory contains a <code>Makefile</code> which can be run to obtain all the output for the manuscript and compile the manuscript. This makefile encodes the dependencies between the different files described above. For those not familiar with makefiles, we have included a “Make-like” file, <code>master_source.R</code> which indicates the order in which the .R files should be sourced.</p>
+<p>The main directory contains a <code>Makefile</code> which can be run to obtain all the output for the manuscript and compile the manuscript. This makefile encodes the dependencies between the different files described above. For those not familiar with makefiles, we have included a “Make-like” file, <code>rmaster_source.R</code> which indicates the order in which the .R files should be sourced.</p>
 </div>
 <div id="analysis-dataset" class="section level3">
 <h3>Analysis Dataset</h3>
@@ -266,39 +267,6 @@ img {
 <div id="session-info" class="section level3">
 <h3>Session Info</h3>
 <p>This manuscript was compiled with <a href="http://www.rstudio.com/">RStudio</a> (v. 0.98.983 for Windows) with the following R session:</p>
-<pre><code>## Loading required package: nlme</code></pre>
-<pre><code>## This is mgcv 1.8-9. For overview type 'help(&quot;mgcv-package&quot;)'.</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following object is masked from 'package:nlme':
-## 
-##     collapse</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## -------------------------------------------------------------------------</code></pre>
-<pre><code>## You have loaded plyr after dplyr - this is likely to cause problems.
-## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
-## library(plyr); library(dplyr)</code></pre>
-<pre><code>## -------------------------------------------------------------------------</code></pre>
-<pre><code>## 
-## Attaching package: 'plyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:dplyr':
-## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-##     summarize</code></pre>
-<pre><code>## 
-## spatstat 1.44-1       (nickname: 'Gift Horse') 
-## For an introduction to spatstat, type 'beginner'</code></pre>
-<pre><code>## 
-## Attaching package: 'spatstat'</code></pre>
-<pre><code>## The following object is masked from 'package:lattice':
-## 
-##     panel.histogram</code></pre>
 <pre><code>## R version 3.2.3 (2015-12-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 7 x64 (build 7601) Service Pack 1
@@ -316,7 +284,7 @@ img {
 ## other attached packages:
 ##  [1] RColorBrewer_1.1-2 spatstat_1.44-1    lattice_0.20-33   
 ##  [4] plyr_1.8.3         pitchRx_1.8.2      ggplot2_2.0.0     
-##  [7] dplyr_0.4.3        xtable_1.8-0       mgcv_1.8-9        
+##  [7] dplyr_0.4.3        xtable_1.8-0       mgcv_1.8-12       
 ## [10] nlme_3.1-122       knitr_1.12        
 ## 
 ## loaded via a namespace (and not attached):

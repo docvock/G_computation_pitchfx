@@ -1,12 +1,12 @@
 ###################################
-# File: ./pitchfx_models_3yr.R
+# File: ./pitchfx_models.R
 #   Purpose: Develop models for whether or not batter swings, outcome if batter swings, and
 #		         whether or not pitch is called strike if the batter does not swing 
 #   Author: David M. Vock
-#   Last Modified: Augst 25, 2015
-#   Relies On: ./data_generate_3yr.R ./data_manipulate_3yr.R ./pitchfx_models_3yr_function.R 
+#   Last Modified: March 1, 2016 by Laura Boehm Vock
+#   Relies On: ./data_generate.R ./data_manipulate.R ./pitchfx_models_function.R 
 #              ./pitchfx_models_graphics.R
-#   Files Created: ./models_3yr.Rdata - contains all the models fit
+#   Files Created: ./models.Rdata - contains all the models fit
 #                  Graphical results of GAMs
 #                    ./baseball_graphics_3yr/swing_gam_Castro.pdf
 #                    ./baseball_graphics_3yr/whiff_gam_Castro.pdf
@@ -56,7 +56,7 @@ library(xtable)
 library(dplyr)
 
 # Read-in data
-pitchfx <- read.table("data/pitchfx_processed_3yr.txt",sep="\t",header=T)
+pitchfx <- read.table("data/pitchfx_processed_3yr_nomiss.txt",sep="\t",header=T)
 pitchfx <- as.data.frame(pitchfx)
 
 # Read-in GAM function
@@ -64,15 +64,9 @@ source("functions/pitchfx_models_3yr_function.R")
 source("functions/pitchfx_models_graphics.R")
 
 # Fit GAM models 
-castro_models <- gam_models(pitchfx = pitchfx, batter_id = 516770)
-mccutchen_models <- gam_models(pitchfx = pitchfx, batter_id = 457705)
+castro_models <- gam_models(pitchfx = pitchfx, batter_id = 516770, verbose=TRUE)
+mccutchen_models <- gam_models(pitchfx = pitchfx, batter_id = 457705, verbose=TRUE)
 
-# save the models to the workspace
-rm(pitchfx, gam_models, model_diagnostic_graphics)
-save.image(file="models_3yr.Rdata")
+save(castro_models, mccutchen_models, file="models_3yr.Rdata")
 
 rm(list = ls())
-
-
-
-

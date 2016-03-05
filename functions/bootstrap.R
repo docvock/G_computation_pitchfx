@@ -20,7 +20,8 @@ bootstrap.se <- function(pitchfx = pitchfx, B, seed){
 	#   walk, out, batting average, on-base percentage, and slugging percentage for each of the 16 
 	#   combinations of models for plate discipline, hitting ability, strike zone called, and pitch 
 	#   selection for each of the B boostrap samples.
-
+warn.option <- options()$warn
+  options(warn=1)
   set.seed(seed)
   num.SC <- sum(pitchfx$starlin) 
   num.AM <- nrow(pitchfx) - num.SC 
@@ -72,6 +73,7 @@ for (m in c("Castro", "McCutchen")) {
     OUT[, , i] <- OUT.ITER
     print(i)
 
-}
+  }
+  options(warn=warn.option)
   return(OUT)
 }

@@ -4,7 +4,7 @@
 #            models. Called in pitchfx_models_function. Outputs to the directory 
 #            ./baseball_graphics
 #   Author: David M. Vock
-#   Last Modified: Augst 10, 2014
+#   Last Modified: Feb 24, 2016 by Laura Boehm Vock
 #   Relies On: NA
 #   Files Created: NA
 ####################################
@@ -52,14 +52,23 @@ model_diagnostic_graphics <- function(data, outcome, model, count, main_title, p
 	#            estimate of the marginal probability.
 	# complement: If "Y", then plot 1 - estimated probability. 
 	
-	grid_pred <- expand.grid(seq(from = -2, to = 2, by = 0.05), seq(from = 0.5, to = 4.5, by = 0.05),
-		c("CH", "SL", "CU", "FF", "FT", "FC"))
+	grid_pred <- expand.grid(seq(from = -2, to = 2, by = 0.05), 
+	                         seq(from = 0.5, to = 4.5, by = 0.05),
+	                         c("CH", "SL", "CU", "FF", "FT", "FC"))
 	colnames(grid_pred) <- c("px", "pz", "pitch_type_alt1")
 	grid_pred <- as.data.frame(grid_pred)
-	grid_pred <- inner_join(grid_pred,pitch_type_avg)
-	grid_pred$count <- grid_pred$count_alt <-count
-	grid_pred$strikecount <- as.numeric(substr(grid_pred$count,3,3))
-	grid_pred$ballcount = as.numeric(substr(grid_pred$count,1,1))
+	grid_pred <- inner_join(grid_pred, pitch_type_avg)
+	#this hack fixes the problem with dimensions of the joined columns.
+	#despite appearing as a data.frame, these columns are of dim() 6.
+	# see str(grid_pred) or dim(grid_pred$pfx_x). This throws off the predict function.
+	grid_pred$pfx_x <- grid_pred$pfx_x
+	grid_pred$pfx_z <- grid_pred$pfx_z
+	grid_pred$start_speed <- grid_pred$start_speed	
+	
+	# add the column for count
+	grid_pred$count <- grid_pred$count_alt <- grid_pred$count_alt2 <- count
+	grid_pred$count_alt2[grid_pred$count=="3-0"] <- "2-0"
+	
 	grid_pred$pred_outcome <- predict(model, newdata=grid_pred, type="response")
 	if( complement == "Y") {
 		grid_pred$pred_outcome <- 1 - grid_pred$pred_outcome 	
@@ -67,7 +76,8 @@ model_diagnostic_graphics <- function(data, outcome, model, count, main_title, p
 	grid_pred$pred_outcome <- grid_pred$pred_outcome * surv_prob
 	 
 	
-myplot <-	contourplot(pred_outcome ~ px * pz | pitch_type_alt1 , data = grid_pred,
+myplot <-	contourplot(pred_outcome ~ px * pz | pitch_type_alt1, 
+              data = grid_pred,
               aspect="iso",
               at=seq(from = 0, to = 1, by = 0.1), region = T, col.regions = color_use,
               xlab = "Distance from Center of Home Plate (ft)",
@@ -89,7 +99,7 @@ myplot <-	contourplot(pred_outcome ~ px * pz | pitch_type_alt1 , data = grid_pre
               } # close panel function
 	) # close contourplot function
 
-	return( list(grid_pred$pred_outcome,myplot))
+	return( list(grid_pred$pred_outcome, myplot))
 } # close graphics function
 
 

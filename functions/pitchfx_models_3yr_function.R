@@ -1,9 +1,9 @@
 ###################################
-# File: ./pitchfx_models_function_3yr.R
+# File: ./pitchfx_models_function.R
 #   Purpose: Function to develop models for whether or not batter swings, outcome if batter swings, and
 #		         whether or not pitch is called strike if the batter does not swing 
 #   Author: David M. Vock
-#   Last Modified: Augst 25, 2015
+#   Last Modified: January 29, 2016 (by Laura Boehm Vock)
 #   Relies On: ./pitchfx_models_graphics.R
 #   Files Created: NA 
 ####################################
@@ -34,6 +34,7 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	pitchfx_id <- filter(pitchfx, batter == batter_id)
 	pitchfx_swing_id <- filter(pitchfx_id, swing == 1)
 	pitchfx_noswing_id <- filter(pitchfx_id, swing == 0)
+	whiff_gam <- strike_gam <- swing_gam <- hit_gam <- foul_gam <- tb_gam <- NULL
 	
 	if (batter_id == 516770) {
 		print("Models for Starlin Castro")
@@ -63,10 +64,20 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	
 	# Given batter swings, estimate probability the batter whiffs using GAM
 	print("Fitting whiff model")
-	whiff_gam <- gam(whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt) + 
-                    te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
-                    family = "binomial", link = "logit", sp = sp.whiff, data = pitchfx_swing_id)
-	if (verbose == T) {
+	
+	# If either whiff=0 or whiff=1 (or both) has no occurences on "3-0" count, need to use count_alt2, 
+	# otherwise can use count. count_alt2 has  3-0 switched to 2-0 for both M & C. 
+	if(with(subset(pitchfx_swing_id, count=="3-0"), length(table(whiff)))<2){
+	  whiff_gam <- gam(whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt2) + 
+	                     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
+	                   family = "binomial", link = "logit", sp = sp.whiff, data = pitchfx_swing_id)
+	}else{
+	  whiff_gam <- gam(whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
+	                     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
+	                   family = "binomial", link = "logit", sp = sp.whiff, data = pitchfx_swing_id)
+	}
+
+		if (verbose == T) {
 		print(summary(whiff_gam))
 		pdf(paste("baseball_graphics_3yr/whiff_gam_", batter_name_use, ".pdf", sep=""), 
 			width = 16, height = 10)
@@ -100,7 +111,7 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# GAM
 	print("Fitting foul model")
 	pitchfx_swing_id_sub1 <- filter(pitchfx_swing_id, result != "whiff")
-	foul_gam <- gam(foul ~ s(start_speed, bs = "ts", k = 30) + 
+	foul_gam <- gam(foul ~ s(start_speed, bs = "ts", k = 30) + ifelse(count=="0-2", 1, 0) +
 			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
 		family = "binomial", link = "logit", sp = sp.foul, data = pitchfx_swing_id_sub1)
 	if (verbose == T) {
@@ -138,9 +149,19 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# hits safely using GAM
 	print("Fitting hit model")
 	pitchfx_swing_id_sub2 <- filter(pitchfx_swing_id, result != "whiff" & result != "foul")
-	hit_gam <- gam(hit_safe ~ s(start_speed, bs = "ts", k = 30) +
-			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
-	                family = "binomial", link = "logit", sp = sp.hit, data = pitchfx_swing_id_sub2)
+	
+	# If either hit_safe=0 or hit_safe=1 (or both) has no occurences on "3-0" count, need to use count_alt2, 
+	# otherwise can use count. count_alt2 has  3-0 switched to 2-0 for both M & C. 
+	if(with(subset(pitchfx_swing_id_sub2, count=="3-0"), length(table(hit_safe)))<2){
+	  hit_gam <- gam(hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt2) +
+	                   te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
+	                 family = "binomial", link = "logit", sp = sp.hit, data = pitchfx_swing_id_sub2)	  
+	}else{
+	  hit_gam <- gam(hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) +
+	                   te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)),
+	                 family = "binomial", link = "logit", sp = sp.hit, data = pitchfx_swing_id_sub2)
+	}
+	
 	if (verbose == T) {
 		print(summary(hit_gam))
 		pdf(paste("baseball_graphics_3yr/hit_gam_", batter_name_use, ".pdf", sep=""), 
@@ -176,7 +197,7 @@ gam_models <- function(pitchfx, batter_id, verbose = T, count_use = "1-1", sp.sw
 	# Given batter swings, makes contact, and put ball into play, estimate the total number of bases 
 	# the batter hits safely using GAM
 	print("Fitting total bases model")
-	tb_gam <- gam(total_bases ~ s(start_speed, bs = "ts", k = 30) +
+	tb_gam <- gam(total_bases ~ s(start_speed, bs = "ts", k = 30) + ifelse(count=="3-0", 1, 0) +
 			te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15)), 
 		family = "poisson", link = "log", sp = sp.tb, data = pitchfx_swing_id_sub2)
 	if (verbose == T) {

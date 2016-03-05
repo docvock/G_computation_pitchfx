@@ -1,10 +1,11 @@
 ###################################
-# File: ./data_manipulate_3yr.R
+# File: ./data_manipulate.R
 #   Purpose: Process analysis dataset for use in models and graphics.
 #   Author: David M. Vock
-#   Last Modified: Augst 25, 2015
-#   Relies On: ./data_generate_3yr.R 
-#   Files Created: ./pitchfx_processed)3yr.txt 
+#   Last Modified: March 1, 2016  by Laura Boehm Vock
+#   Relies On: ./data_generate.R 
+#   Files Created: ./data/pitchfx_processed_3yr.txt 
+#									./data/pitchfx_processed_3yr_nomiss.txt
 ####################################
 
 # Libraries used
@@ -84,6 +85,9 @@ pitchfx <- mutate(pitchfx,
 
 pitchfx$count_alt <- pitchfx$count
 pitchfx$count_alt[pitchfx$count_alt == "3-0" & pitchfx$starlin == 1] <- "2-0"
+pitchfx$count_alt2 <- pitchfx$count
+pitchfx$count_alt2[pitchfx$count_alt2 == "3-0"] <- "2-0"
+
 pitchfx <- select(pitchfx, -atbat_des)
 
 # subset to pitches only from right-handed pitchers
@@ -95,6 +99,16 @@ pitchfx <- filter(pitchfx, grepl("Sac Bunt", event) == F & grepl("Sac Fly", even
 
 # Write data to .txt file
 write.table(pitchfx,'data/pitchfx_processed_3yr.txt',sep="\t",col.names=T,row.names=F)
+
+# Remove entire plate appearance if one or more pitches is missing
+zulus <- pitchfx[which(is.na(pitchfx$start_speed)), "start_tfs_zulu"]
+miss <- which(pitchfx$start_tfs_zulu %in% zulus)
+pitchfx.nm <- pitchfx[-miss, ]
+
+# Write data to .txt file
+write.table(pitchfx.nm,'data/pitchfx_processed_3yr_nomiss.txt',sep="\t",col.names=T,row.names=F)
+
+
 
 # Clear workspace
 rm(list=ls())

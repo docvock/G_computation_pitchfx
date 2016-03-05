@@ -2,7 +2,7 @@
 # File: ./data_generate_3yr.R
 #   Purpose: Extract the pitchf/x data needed for analysis from online MLB Gameday databases.
 #   Author: David M. Vock
-#   Last Modified: August 20, 2015
+#   Last Modified: January 17, 2016
 #   Relies On: NA 
 #   Files Created: ./data/pitchfx_sc_am_3yr.txt 
 ####################################

@@ -2,12 +2,11 @@
 # File: ./model_outcomes.R
 #   Purpose: Function which gives counterfactual outcomes
 #   Author: David M. Vock
-#   Last Modified: Augst 25, 2014
+#   Last Modified: March 5, 2016
 #   Relies On: ./data_generate.R ./data_manipulate.R ./pitchfx_models_function.R 
 #              ./gcomputation.R
 #   Files Created: NA 
 ####################################
-
 
 # Read-in workpace with model results
 load("models_3yr.Rdata")
@@ -18,7 +17,7 @@ library(xtable)
 library(dplyr)
 
 # Read-in data
-pitchfx <- read.table("data/pitchfx_processed_3yr.txt",sep="\t",header=T)
+pitchfx <- read.table("data/pitchfx_processed_3yr_nomiss.txt",sep="\t",header=T)
 pitchfx <- as.data.frame(pitchfx)
 
 # Read-in Model, G-computation, Boostrap Function
@@ -33,23 +32,13 @@ for (j in c("Castro", "McCutchen")) {
 			for (m in c("Castro", "McCutchen")) {
 				OUT.ITER <- cbind(OUT.ITER, 
 					unlist(model_outcomes(hitting_ability = j, plate_discipline = k, pitch_selection = l,
-					strikezone = m, mccutchen_models = mccutchen_models, castro_models = castro_models, 
+					strikezone = j, mccutchen_models = mccutchen_models, castro_models = castro_models, 
 					pitchfx = pitchfx)))
 }}}}
 
 
-t1 <- unlist(model_outcomes(hitting_ability = "Castro", plate_discipline = 
-		c("0-2", "1-2", "2-2", "3-2"), pitch_selection = "Castro",
-	strikezone = "Castro", mccutchen_models = mccutchen_models, castro_models = castro_models, 
-	pitchfx = pitchfx))
-
-t1 <- unlist(model_outcomes(hitting_ability = "Castro", plate_discipline = 
-		c("0-0", "0-2", "1-2", "2-2", "3-2"), pitch_selection = "Castro",
-	strikezone = "Castro", mccutchen_models = mccutchen_models, castro_models = castro_models, 
-	pitchfx = pitchfx))
-
-start <- proc.time()
-boot.data <- bootstrap.se(pitchfx = pitchfx, B = 100, seed = 1101985)
+start <- proc.time() 
+boot.data <- bootstrap.se(pitchfx = pitchfx, B = 2, seed = 1101985)
 proc.time()-start
 
 effects <- expand.grid(strikezone = c("Castro", "McCutchen"), 
