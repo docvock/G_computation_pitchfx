@@ -14,8 +14,50 @@ List of 1
 
   |                                                                         |....................................................             |  80%
 label: unnamed-chunk-2 (with options) 
-List of 1
- $ echo: logi FALSE
+List of 2
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+
+Loading required package: nlme
+This is mgcv 1.8-12. For overview type 'help("mgcv-package")'.
+
+Attaching package: 'dplyr'
+
+The following object is masked from 'package:nlme':
+
+    collapse
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: ggplot2
+-------------------------------------------------------------------------
+You have loaded plyr after dplyr - this is likely to cause problems.
+If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+library(plyr); library(dplyr)
+-------------------------------------------------------------------------
+
+Attaching package: 'plyr'
+
+The following objects are masked from 'package:dplyr':
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+
+spatstat 1.44-1       (nickname: 'Gift Horse') 
+For an introduction to spatstat, type 'beginner'
+
+Attaching package: 'spatstat'
+
+The following object is masked from 'package:lattice':
+
+    panel.histogram
 
   |                                                                         |.................................................................| 100%
   ordinary text without R code
@@ -26,4 +68,4 @@ output file: README.md
 [1] "README.md"
 > proc.time()
    user  system elapsed 
-   1.48    0.06    1.54 
+   3.86    0.23    4.10 

@@ -1,5 +1,5 @@
 Loading required package: nlme
-This is mgcv 1.8-4. For overview type 'help("mgcv-package")'.
+This is mgcv 1.8-12. For overview type 'help("mgcv-package")'.
 
 Attaching package: 'dplyr'
 
@@ -25,34 +25,33 @@ Formula:
 swing ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000c41b6a0>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
-(Intercept)         -1.70541    0.07674 -22.222  < 2e-16 ***
-as.factor(count)0-1  1.60723    0.12073  13.313  < 2e-16 ***
-as.factor(count)0-2  2.87544    0.16543  17.381  < 2e-16 ***
-as.factor(count)1-0  0.95735    0.12451   7.689 1.48e-14 ***
-as.factor(count)1-1  1.82812    0.13028  14.032  < 2e-16 ***
-as.factor(count)1-2  3.39543    0.15933  21.311  < 2e-16 ***
-as.factor(count)2-0  0.72325    0.18609   3.887 0.000102 ***
-as.factor(count)2-1  2.05943    0.17496  11.771  < 2e-16 ***
-as.factor(count)2-2  3.38385    0.18544  18.248  < 2e-16 ***
-as.factor(count)3-0 -2.69684    0.74281  -3.631 0.000283 ***
-as.factor(count)3-1  2.20441    0.28288   7.793 6.56e-15 ***
-as.factor(count)3-2  4.33002    0.30434  14.227  < 2e-16 ***
+(Intercept)         -1.71405    0.07723 -22.193  < 2e-16 ***
+as.factor(count)0-1  1.62150    0.12116  13.383  < 2e-16 ***
+as.factor(count)0-2  2.87991    0.16592  17.357  < 2e-16 ***
+as.factor(count)1-0  0.97439    0.12501   7.795 6.46e-15 ***
+as.factor(count)1-1  1.83619    0.13055  14.066  < 2e-16 ***
+as.factor(count)1-2  3.38729    0.15948  21.239  < 2e-16 ***
+as.factor(count)2-0  0.73440    0.18756   3.916 9.02e-05 ***
+as.factor(count)2-1  2.06067    0.17565  11.732  < 2e-16 ***
+as.factor(count)2-2  3.37882    0.18509  18.255  < 2e-16 ***
+as.factor(count)3-0 -2.66725    0.74266  -3.591 0.000329 ***
+as.factor(count)3-1  2.20588    0.28534   7.731 1.07e-14 ***
+as.factor(count)3-2  4.30651    0.30579  14.083  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
                          edf Ref.df  Chi.sq p-value    
-s(start_speed)         3.201     29   13.73 0.00125 ** 
-te(px,pz,pfx_x,pfx_z) 66.255    224 1121.64 < 2e-16 ***
+s(start_speed)         3.285     29   13.84 0.00133 ** 
+te(px,pz,pfx_x,pfx_z) 69.263    224 1114.51 < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.423   Deviance explained = 37.5%
-UBRE = -0.10332  Scale est. = 1         n = 5314
+R-sq.(adj) =  0.422   Deviance explained = 37.5%
+UBRE = -0.10155  Scale est. = 1         n = 5290
 Joining by: "pitch_type_alt1"
 [1] "Fitting whiff model"
 
@@ -60,36 +59,35 @@ Family: binomial
 Link function: logit 
 
 Formula:
-whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt) + 
+whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt2) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000c41b6a0>
 
 Parametric coefficients:
-                        Estimate Std. Error z value Pr(>|z|)    
-(Intercept)              -1.6334     0.1543 -10.586   <2e-16 ***
-as.factor(count_alt)0-1   0.0408     0.2167   0.188   0.8506    
-as.factor(count_alt)0-2  -0.5729     0.2566  -2.233   0.0256 *  
-as.factor(count_alt)1-0   0.3392     0.2322   1.461   0.1441    
-as.factor(count_alt)1-1  -0.1061     0.2283  -0.464   0.6423    
-as.factor(count_alt)1-2  -0.3192     0.2214  -1.442   0.1493    
-as.factor(count_alt)2-0   0.1488     0.3531   0.421   0.6734    
-as.factor(count_alt)2-1  -0.4339     0.2919  -1.487   0.1371    
-as.factor(count_alt)2-2  -0.4150     0.2409  -1.723   0.0849 .  
-as.factor(count_alt)3-1  -0.7269     0.5035  -1.444   0.1488    
-as.factor(count_alt)3-2  -0.4408     0.3096  -1.424   0.1545    
+                         Estimate Std. Error z value Pr(>|z|)    
+(Intercept)              -1.65033    0.15596 -10.582   <2e-16 ***
+as.factor(count_alt2)0-1  0.05340    0.21845   0.244   0.8069    
+as.factor(count_alt2)0-2 -0.58781    0.25976  -2.263   0.0236 *  
+as.factor(count_alt2)1-0  0.35890    0.23345   1.537   0.1242    
+as.factor(count_alt2)1-1 -0.08590    0.22985  -0.374   0.7086    
+as.factor(count_alt2)1-2 -0.29320    0.22305  -1.314   0.1887    
+as.factor(count_alt2)2-0  0.07993    0.36263   0.220   0.8256    
+as.factor(count_alt2)2-1 -0.41322    0.29364  -1.407   0.1594    
+as.factor(count_alt2)2-2 -0.41109    0.24302  -1.692   0.0907 .  
+as.factor(count_alt2)3-1 -0.93585    0.55219  -1.695   0.0901 .  
+as.factor(count_alt2)3-2 -0.36204    0.30971  -1.169   0.2424    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
                          edf Ref.df  Chi.sq p-value    
-s(start_speed)         2.855     29   2.814   0.386    
-te(px,pz,pfx_x,pfx_z) 30.560    224 394.168  <2e-16 ***
+s(start_speed)         2.523     29   1.866   0.523    
+te(px,pz,pfx_x,pfx_z) 31.117    224 396.626  <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =   0.25   Deviance explained = 23.6%
-UBRE = -0.22341  Scale est. = 1         n = 2601
+R-sq.(adj) =  0.257   Deviance explained = 24.3%
+UBRE = -0.2308  Scale est. = 1         n = 2590
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -99,25 +97,26 @@ Family: binomial
 Link function: logit 
 
 Formula:
-foul ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, pfx_x, 
-    pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000c41b6a0>
+foul ~ s(start_speed, bs = "ts", k = 30) + ifelse(count == "0-2", 
+    1, 0) + te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), 
+    k = c(15, 15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -0.20019    0.04564  -4.387 1.15e-05 ***
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -0.21820    0.04783  -4.562 5.07e-06 ***
+ifelse(count == "0-2", 1, 0)  0.20886    0.17883   1.168    0.243    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                          edf Ref.df  Chi.sq p-value    
-s(start_speed)         0.7975     29   6.019 0.00492 ** 
-te(px,pz,pfx_x,pfx_z) 30.9719    224 127.189 < 2e-16 ***
+                         edf Ref.df Chi.sq p-value    
+s(start_speed)         3.833     29  10.11   0.017 *  
+te(px,pz,pfx_x,pfx_z) 30.593    224 119.89  <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0843   Deviance explained = 7.34%
-UBRE = 0.30705  Scale est. = 1         n = 2107
+R-sq.(adj) =  0.0858   Deviance explained = 7.59%
+UBRE = 0.30715  Scale est. = 1         n = 2099
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -127,25 +126,35 @@ Family: binomial
 Link function: logit 
 
 Formula:
-hit_safe ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, pfx_x, 
-    pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000c41b6a0>
+hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt2) + 
+    te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
+        15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -0.71669    0.06341   -11.3   <2e-16 ***
+                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)              -0.822673   0.163469  -5.033 4.84e-07 ***
+as.factor(count_alt2)0-1  0.306210   0.240658   1.272    0.203    
+as.factor(count_alt2)0-2  0.255070   0.299327   0.852    0.394    
+as.factor(count_alt2)1-0 -0.067887   0.278191  -0.244    0.807    
+as.factor(count_alt2)1-1  0.028465   0.243422   0.117    0.907    
+as.factor(count_alt2)1-2 -0.026744   0.255981  -0.104    0.917    
+as.factor(count_alt2)2-0 -0.293794   0.380540  -0.772    0.440    
+as.factor(count_alt2)2-1  0.309461   0.276138   1.121    0.262    
+as.factor(count_alt2)2-2  0.101134   0.260524   0.388    0.698    
+as.factor(count_alt2)3-1  0.003748   0.406300   0.009    0.993    
+as.factor(count_alt2)3-2  0.408380   0.298610   1.368    0.171    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
                             edf Ref.df Chi.sq p-value  
-s(start_speed)        3.507e-04     29   0.00  0.7433  
-te(px,pz,pfx_x,pfx_z) 2.633e+01    224  37.82  0.0278 *
+s(start_speed)        4.217e-04     29   0.00  0.7710  
+te(px,pz,pfx_x,pfx_z) 3.150e+01    224  47.26  0.0101 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0244   Deviance explained =  3.8%
-UBRE = 0.2697  Scale est. = 1         n = 1155
+R-sq.(adj) =  0.028   Deviance explained = 5.14%
+UBRE = 0.27949  Scale est. = 1         n = 1151
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -155,25 +164,27 @@ Family: poisson
 Link function: log 
 
 Formula:
-total_bases ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, 
-    pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000c41b6a0>
+total_bases ~ s(start_speed, bs = "ts", k = 30) + ifelse(count == 
+    "3-0", 1, 0) + te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 
+    2), k = c(15, 15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept)  -0.8095     0.0457  -17.71   <2e-16 ***
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -0.81004    0.04583  -17.68   <2e-16 ***
+ifelse(count == "3-0", 1, 0)  0.00000    0.00000      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
                         edf Ref.df Chi.sq  p-value    
-s(start_speed)        11.20     29  19.46   0.0315 *  
-te(px,pz,pfx_x,pfx_z) 62.27    224 123.64 6.27e-08 ***
+s(start_speed)        10.87     29  18.59   0.0368 *  
+te(px,pz,pfx_x,pfx_z) 63.81    224 126.77 3.01e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0645   Deviance explained = 13.9%
-UBRE = 0.19257  Scale est. = 1         n = 1155
+Rank: 254/255
+R-sq.(adj) =  0.0655   Deviance explained = 14.2%
+UBRE = 0.19323  Scale est. = 1         n = 1151
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -186,39 +197,39 @@ Formula:
 called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000c41b6a0>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
-(Intercept)         -2.59717    0.37446  -6.936 4.04e-12 ***
-as.factor(count)0-1 -0.69857    0.28552  -2.447   0.0144 *  
-as.factor(count)0-2 -1.25159    0.55557  -2.253   0.0243 *  
-as.factor(count)1-0  0.39637    0.23842   1.663   0.0964 .  
-as.factor(count)1-1  0.10264    0.29296   0.350   0.7261    
-as.factor(count)1-2 -0.35212    0.60451  -0.582   0.5602    
-as.factor(count)2-0  0.25283    0.35968   0.703   0.4821    
-as.factor(count)2-1  0.01415    0.42539   0.033   0.9735    
-as.factor(count)2-2 -0.04362    0.51962  -0.084   0.9331    
-as.factor(count)3-0  1.29367    0.60019   2.155   0.0311 *  
-as.factor(count)3-1  0.41306    0.65105   0.634   0.5258    
-as.factor(count)3-2 -1.64731    1.26091  -1.306   0.1914    
+(Intercept)         -2.46430    0.35768  -6.890  5.6e-12 ***
+as.factor(count)0-1 -0.71442    0.28830  -2.478   0.0132 *  
+as.factor(count)0-2 -1.25052    0.56268  -2.222   0.0263 *  
+as.factor(count)1-0  0.43124    0.24058   1.793   0.0731 .  
+as.factor(count)1-1  0.11248    0.29466   0.382   0.7027    
+as.factor(count)1-2 -0.35185    0.60681  -0.580   0.5620    
+as.factor(count)2-0  0.26061    0.36194   0.720   0.4715    
+as.factor(count)2-1  0.03629    0.42657   0.085   0.9322    
+as.factor(count)2-2 -0.03697    0.52299  -0.071   0.9436    
+as.factor(count)3-0  1.37358    0.62213   2.208   0.0273 *  
+as.factor(count)3-1  0.40564    0.65180   0.622   0.5337    
+as.factor(count)3-2 -1.60380    1.25751  -1.275   0.2022    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                          edf Ref.df  Chi.sq p-value    
-s(start_speed)         0.0547     29   0.059   0.293    
-te(px,pz,pfx_x,pfx_z) 36.1813    224 516.440  <2e-16 ***
+                           edf Ref.df  Chi.sq p-value    
+s(start_speed)         0.01227     29   0.013   0.303    
+te(px,pz,pfx_x,pfx_z) 38.30642    224 512.593  <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.753   Deviance explained = 72.6%
-UBRE = -0.60942  Scale est. = 1         n = 2713
+R-sq.(adj) =  0.754   Deviance explained = 72.7%
+UBRE = -0.60922  Scale est. = 1         n = 2700
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
+There were 18 warnings (use warnings() to see them)
 [1] "Models for Andrew McCutchen"
 [1] "Fitting swing model"
 
@@ -229,34 +240,33 @@ Formula:
 swing ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b1e6e28>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
-(Intercept)         -1.59799    0.07958 -20.079  < 2e-16 ***
-as.factor(count)0-1  1.02222    0.11887   8.599  < 2e-16 ***
-as.factor(count)0-2  2.43269    0.18362  13.248  < 2e-16 ***
-as.factor(count)1-0  0.30506    0.12101   2.521   0.0117 *  
-as.factor(count)1-1  1.22336    0.12509   9.780  < 2e-16 ***
-as.factor(count)1-2  2.33392    0.14819  15.749  < 2e-16 ***
-as.factor(count)2-0  0.41626    0.17217   2.418   0.0156 *  
-as.factor(count)2-1  1.20765    0.14872   8.120 4.65e-16 ***
-as.factor(count)2-2  2.40055    0.15011  15.992  < 2e-16 ***
-as.factor(count)3-0 -0.41514    0.33157  -1.252   0.2106    
-as.factor(count)3-1  0.56919    0.20915   2.721   0.0065 ** 
-as.factor(count)3-2  2.91332    0.18214  15.995  < 2e-16 ***
+(Intercept)         -1.62592    0.08038 -20.227  < 2e-16 ***
+as.factor(count)0-1  1.02055    0.11918   8.563  < 2e-16 ***
+as.factor(count)0-2  2.44470    0.18525  13.197  < 2e-16 ***
+as.factor(count)1-0  0.30418    0.12124   2.509   0.0121 *  
+as.factor(count)1-1  1.22534    0.12533   9.777  < 2e-16 ***
+as.factor(count)1-2  2.34738    0.14888  15.767  < 2e-16 ***
+as.factor(count)2-0  0.41654    0.17250   2.415   0.0157 *  
+as.factor(count)2-1  1.21039    0.14895   8.126 4.42e-16 ***
+as.factor(count)2-2  2.40690    0.15046  15.997  < 2e-16 ***
+as.factor(count)3-0 -0.42621    0.33222  -1.283   0.1995    
+as.factor(count)3-1  0.56341    0.20928   2.692   0.0071 ** 
+as.factor(count)3-2  2.91967    0.18275  15.977  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                         edf Ref.df Chi.sq  p-value    
-s(start_speed)         3.566     29     19 9.64e-05 ***
-te(px,pz,pfx_x,pfx_z) 77.137    224   1475  < 2e-16 ***
+                         edf Ref.df  Chi.sq  p-value    
+s(start_speed)         3.452     29   18.37 0.000127 ***
+te(px,pz,pfx_x,pfx_z) 76.750    224 1459.64  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =   0.44   Deviance explained = 39.1%
-UBRE = -0.13035  Scale est. = 1         n = 6205
+R-sq.(adj) =  0.439   Deviance explained = 39.1%
+UBRE = -0.12968  Scale est. = 1         n = 6193
 Joining by: "pitch_type_alt1"
 [1] "Fitting whiff model"
 
@@ -264,37 +274,36 @@ Family: binomial
 Link function: logit 
 
 Formula:
-whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count_alt) + 
+whiff ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b1e6e28>
 
 Parametric coefficients:
-                        Estimate Std. Error z value Pr(>|z|)    
-(Intercept)              -0.9670     0.1124  -8.603  < 2e-16 ***
-as.factor(count_alt)0-1  -0.6325     0.1951  -3.243 0.001184 ** 
-as.factor(count_alt)0-2  -0.4875     0.2326  -2.096 0.036102 *  
-as.factor(count_alt)1-0  -0.2194     0.2018  -1.087 0.276878    
-as.factor(count_alt)1-1  -0.5000     0.1926  -2.597 0.009412 ** 
-as.factor(count_alt)1-2  -0.6569     0.1971  -3.332 0.000861 ***
-as.factor(count_alt)2-0  -0.4142     0.2966  -1.396 0.162660    
-as.factor(count_alt)2-1  -0.4932     0.2303  -2.142 0.032226 *  
-as.factor(count_alt)2-2  -0.7220     0.1928  -3.744 0.000181 ***
-as.factor(count_alt)3-0  -0.9488     0.8298  -1.143 0.252864    
-as.factor(count_alt)3-1  -0.6137     0.3787  -1.621 0.105123    
-as.factor(count_alt)3-2  -0.9872     0.2173  -4.542 5.57e-06 ***
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          -0.9704     0.1125  -8.629  < 2e-16 ***
+as.factor(count)0-1  -0.6464     0.1962  -3.295 0.000983 ***
+as.factor(count)0-2  -0.4897     0.2329  -2.102 0.035519 *  
+as.factor(count)1-0  -0.2195     0.2018  -1.088 0.276786    
+as.factor(count)1-1  -0.4970     0.1927  -2.579 0.009906 ** 
+as.factor(count)1-2  -0.6551     0.1972  -3.321 0.000896 ***
+as.factor(count)2-0  -0.4127     0.2969  -1.390 0.164418    
+as.factor(count)2-1  -0.4857     0.2302  -2.110 0.034886 *  
+as.factor(count)2-2  -0.7181     0.1930  -3.721 0.000198 ***
+as.factor(count)3-0  -0.9644     0.8332  -1.157 0.247105    
+as.factor(count)3-1  -0.6085     0.3785  -1.608 0.107899    
+as.factor(count)3-2  -0.9863     0.2179  -4.525 6.03e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                         edf Ref.df Chi.sq  p-value    
-s(start_speed)         9.341     29  40.93 4.76e-07 ***
-te(px,pz,pfx_x,pfx_z) 57.175    224 377.68  < 2e-16 ***
+                        edf Ref.df Chi.sq  p-value    
+s(start_speed)         9.29     29  40.27 6.32e-07 ***
+te(px,pz,pfx_x,pfx_z) 58.44    224 377.90  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.218   Deviance explained = 20.9%
-UBRE = -0.098025  Scale est. = 1         n = 2839
+R-sq.(adj) =  0.218   Deviance explained =   21%
+UBRE = -0.098153  Scale est. = 1         n = 2834
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -304,23 +313,26 @@ Family: binomial
 Link function: logit 
 
 Formula:
-foul ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, pfx_x, 
-    pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000b1e6e28>
+foul ~ s(start_speed, bs = "ts", k = 30) + ifelse(count == "0-2", 
+    1, 0) + te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), 
+    k = c(15, 15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)
-(Intercept)  0.02203    0.04348   0.507    0.612
-
-Approximate significance of smooth terms:
-                        edf Ref.df Chi.sq  p-value    
-s(start_speed)        12.29     29  17.33    0.121    
-te(px,pz,pfx_x,pfx_z) 18.68    224  61.13 4.23e-08 ***
+                             Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                   0.04898    0.04486   1.092  0.27485   
+ifelse(count == "0-2", 1, 0) -0.50711    0.19589  -2.589  0.00963 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0326   Deviance explained = 3.46%
-UBRE = 0.36742  Scale est. = 1         n = 2195
+Approximate significance of smooth terms:
+                        edf Ref.df Chi.sq  p-value    
+s(start_speed)        12.47     29  18.22    0.099 .  
+te(px,pz,pfx_x,pfx_z) 18.65    224  63.90 1.08e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+R-sq.(adj) =  0.0361   Deviance explained = 3.75%
+UBRE = 0.36442  Scale est. = 1         n = 2192
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -330,25 +342,36 @@ Family: binomial
 Link function: logit 
 
 Formula:
-hit_safe ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, pfx_x, 
-    pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000b1e6e28>
+hit_safe ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
+    te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
+        15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -0.43130    0.06249  -6.902 5.12e-12 ***
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         -0.53312    0.15498  -3.440 0.000582 ***
+as.factor(count)0-1  0.35706    0.24287   1.470 0.141515    
+as.factor(count)0-2 -0.21849    0.30282  -0.722 0.470594    
+as.factor(count)1-0  0.25925    0.26460   0.980 0.327209    
+as.factor(count)1-1  0.23600    0.24214   0.975 0.329728    
+as.factor(count)1-2  0.28123    0.26463   1.063 0.287907    
+as.factor(count)2-0 -0.28886    0.34273  -0.843 0.399329    
+as.factor(count)2-1 -0.28231    0.29891  -0.944 0.344932    
+as.factor(count)2-2  0.23770    0.23939   0.993 0.320739    
+as.factor(count)3-0  1.64461    1.13407   1.450 0.147008    
+as.factor(count)3-1 -0.10901    0.43000  -0.254 0.799872    
+as.factor(count)3-2 -0.01995    0.24739  -0.081 0.935733    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                         edf Ref.df Chi.sq p-value   
-s(start_speed)        0.8361     29  5.036 0.00584 **
-te(px,pz,pfx_x,pfx_z) 6.0401    224 10.470 0.03591 * 
+                        edf Ref.df Chi.sq p-value  
+s(start_speed)        5.144     29  11.16  0.0257 *
+te(px,pz,pfx_x,pfx_z) 6.438    224  11.30  0.0349 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0173   Deviance explained = 1.77%
-UBRE = 0.33269  Scale est. = 1         n = 1086
+R-sq.(adj) =  0.0225   Deviance explained = 3.25%
+UBRE = 0.34209  Scale est. = 1         n = 1085
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -358,25 +381,26 @@ Family: poisson
 Link function: log 
 
 Formula:
-total_bases ~ s(start_speed, bs = "ts", k = 30) + te(px, pz, 
-    pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 15))
-<environment: 0x000000000b1e6e28>
+total_bases ~ s(start_speed, bs = "ts", k = 30) + ifelse(count == 
+    "3-0", 1, 0) + te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 
+    2), k = c(15, 15))
 
 Parametric coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -0.49061    0.03981  -12.32   <2e-16 ***
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -0.49500    0.03998 -12.381   <2e-16 ***
+ifelse(count == "3-0", 1, 0)  0.77413    0.39078   1.981   0.0476 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                          edf Ref.df  Chi.sq  p-value    
-s(start_speed)         0.2034     29   0.348    0.181    
-te(px,pz,pfx_x,pfx_z) 49.2924    224 104.730 5.62e-08 ***
+                         edf Ref.df  Chi.sq  p-value    
+s(start_speed)         0.177     29   0.295    0.187    
+te(px,pz,pfx_x,pfx_z) 49.398    224 105.691 4.09e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.0455   Deviance explained = 9.66%
-UBRE = 0.38835  Scale est. = 1         n = 1086
+R-sq.(adj) =  0.0479   Deviance explained = 9.88%
+UBRE = 0.38729  Scale est. = 1         n = 1085
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
@@ -389,39 +413,39 @@ Formula:
 called_strike ~ s(start_speed, bs = "ts", k = 30) + as.factor(count) + 
     te(px, pz, pfx_x, pfx_z, bs = "ts", d = c(2, 2), k = c(15, 
         15))
-<environment: 0x000000000b1e6e28>
 
 Parametric coefficients:
                     Estimate Std. Error z value Pr(>|z|)    
-(Intercept)          -3.6905     0.4663  -7.915 2.48e-15 ***
-as.factor(count)0-1  -0.3729     0.2659  -1.402   0.1608    
-as.factor(count)0-2  -1.6299     0.6771  -2.407   0.0161 *  
-as.factor(count)1-0   0.5487     0.2312   2.374   0.0176 *  
-as.factor(count)1-1  -0.3613     0.2684  -1.346   0.1783    
-as.factor(count)1-2  -0.3540     0.4231  -0.837   0.4028    
-as.factor(count)2-0   0.6167     0.3337   1.848   0.0646 .  
-as.factor(count)2-1   0.6095     0.3240   1.881   0.0599 .  
-as.factor(count)2-2  -0.2685     0.4481  -0.599   0.5490    
-as.factor(count)3-0   0.5355     0.5647   0.948   0.3430    
-as.factor(count)3-1   0.1628     0.4444   0.366   0.7141    
-as.factor(count)3-2   0.3853     0.5234   0.736   0.4617    
+(Intercept)          -3.7864     0.4579  -8.269   <2e-16 ***
+as.factor(count)0-1  -0.3717     0.2667  -1.394   0.1634    
+as.factor(count)0-2  -1.6339     0.6856  -2.383   0.0172 *  
+as.factor(count)1-0   0.5586     0.2322   2.405   0.0162 *  
+as.factor(count)1-1  -0.3569     0.2694  -1.325   0.1852    
+as.factor(count)1-2  -0.3485     0.4257  -0.819   0.4129    
+as.factor(count)2-0   0.6266     0.3355   1.867   0.0618 .  
+as.factor(count)2-1   0.6238     0.3262   1.912   0.0558 .  
+as.factor(count)2-2  -0.2666     0.4498  -0.593   0.5534    
+as.factor(count)3-0   0.5379     0.5700   0.944   0.3453    
+as.factor(count)3-1   0.1708     0.4482   0.381   0.7031    
+as.factor(count)3-2   0.3944     0.5271   0.748   0.4543    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Approximate significance of smooth terms:
-                         edf Ref.df  Chi.sq p-value    
-s(start_speed)         0.833     28   5.595 0.00886 ** 
-te(px,pz,pfx_x,pfx_z) 32.594    224 596.270 < 2e-16 ***
+                          edf Ref.df  Chi.sq p-value    
+s(start_speed)         0.8521     29   5.605 0.00915 ** 
+te(px,pz,pfx_x,pfx_z) 34.2811    224 584.785 < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-R-sq.(adj) =  0.743   Deviance explained = 71.8%
-UBRE = -0.63936  Scale est. = 1         n = 3366
+R-sq.(adj) =  0.743   Deviance explained = 71.9%
+UBRE = -0.63843  Scale est. = 1         n = 3359
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
 Joining by: "pitch_type_alt1"
+There were 18 warnings (use warnings() to see them)
 > proc.time()
    user  system elapsed 
- 899.48   11.37  912.20 
+ 814.66   13.47  828.63 

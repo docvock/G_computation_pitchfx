@@ -99,14 +99,14 @@ This manuscript was compiled with [RStudio](http://www.rstudio.com/) (v. 0.98.98
 ## [10] nlme_3.1-122       knitr_1.12        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.2      formatR_1.2.1    highr_0.5.1      bitops_1.0-6    
-##  [5] tools_3.2.3      digest_0.6.9     goftest_1.0-3    evaluate_0.8    
-##  [9] gtable_0.1.2     Matrix_1.2-3     DBI_0.3.1        parallel_3.2.3  
-## [13] hexbin_1.27.1    stringr_1.0.0    grid_3.2.3       R6_2.1.1        
-## [17] XML_3.98-1.4     rmarkdown_0.9.2  polyclip_1.4-1   tensor_1.5      
-## [21] XML2R_0.0.6      deldir_0.1-9     magrittr_1.5     scales_0.3.0    
-## [25] htmltools_0.3    MASS_7.3-45      assertthat_0.1   abind_1.4-3     
-## [29] colorspace_1.2-6 stringi_1.0-1    RCurl_1.95-4.8   munsell_0.4.2
+##  [1] Rcpp_0.12.2      tensor_1.5       magrittr_1.5     MASS_7.3-45     
+##  [5] munsell_0.4.2    colorspace_1.2-6 R6_2.1.1         stringr_1.0.0   
+##  [9] highr_0.5.1      tools_3.2.3      parallel_3.2.3   grid_3.2.3      
+## [13] gtable_0.1.2     DBI_0.3.1        deldir_0.1-9     XML2R_0.0.6     
+## [17] abind_1.4-3      goftest_1.0-3    assertthat_0.1   Matrix_1.2-3    
+## [21] formatR_1.2.1    bitops_1.0-6     RCurl_1.95-4.8   evaluate_0.8    
+## [25] polyclip_1.4-1   stringi_1.0-1    scales_0.3.0     XML_3.98-1.4    
+## [29] hexbin_1.27.1
 ```
 
 ---
